@@ -1,0 +1,15 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /api/
+Disallow: /_next/
+Disallow: /bn/
+
+# Host
+Host: https://www.susnex.com
+
+# Sitemaps
+Sitemap: https://www.susnex.com/sitemap.xml
