@@ -116,7 +116,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem>
           <Header />
           <div id="main-content" className="flex-1" role="main">
             <PageTransition>{children}</PageTransition>

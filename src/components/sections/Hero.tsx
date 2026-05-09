@@ -71,19 +71,10 @@ export function Hero() {
           }}
         />
         <Antigravity
-          count={700}
-          colors={isDark ? ANTIGRAVITY_PALETTE_DARK : ANTIGRAVITY_PALETTE_LIGHT}
-          particleShape="sphere"
-          particleSize={0.85}
-          ringRadius={20}
-          magnetRadius={70}
-          waveAmplitude={2.6}
-          waveSpeed={0.32}
-          rotationSpeed={0.09}
-          pulseSpeed={1.5}
-          lerpSpeed={0.04}
-          mouseInfluence={0.55}
-          autoAnimate
+          colorBase={isDark ? "#0a1a05" : "#2a3d1a"}
+          colorOne={isDark ? "#5c7c35" : "#4a6b2a"}
+          colorTwo={isDark ? "#89b54f" : "#6d9a3a"}
+          colorThree={isDark ? "#c8d957" : "#a8d06b"}
         />
       </div>
 
@@ -94,17 +85,20 @@ export function Hero() {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="font-heading text-2xl font-bold leading-snug tracking-tight text-balance sm:text-3xl md:text-4xl lg:text-5xl"
+          className="mb-4 text-2xl font-bold tracking-tight text-[var(--color-green-light)] sm:text-3xl md:text-4xl lg:text-5xl"
+          style={{ fontFamily: '"Arial Rounded MT Bold", sans-serif' }}
         >
-          From{" "}
-          <span className="text-[var(--color-green-light)]">
-            Sustainability Strategy
-          </span>{" "}
-          to{" "}
-          <span className="text-[var(--color-green-light)]">
-            Competitive Advantage
-          </span>
+          The Sustainability Nexus Ltd (SusNex)
         </motion.h1>
+
+        <motion.h2
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+          className="font-heading text-lg font-light leading-snug tracking-wide text-balance text-[var(--color-grey-light)] sm:text-xl md:text-2xl"
+        >
+          From Sustainability Strategy to Competitive Advantage
+        </motion.h2>
 
         <motion.p
           initial={{ y: 20, opacity: 0 }}

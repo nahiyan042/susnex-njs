@@ -198,24 +198,6 @@ const engineers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/penaki-talukdar-turna-35a492193/",
   },
   {
-    name: "Mithila Zakia",
-    role: "Sustainability Developer",
-    photo: "/images/team/mithila-zakia.jpg",
-    linkedin: "https://www.linkedin.com/in/ummay-zakia-7944401b2/",
-  },
-  {
-    name: "Raiyan Ahmed",
-    role: "Sustainability Developer",
-    photo: "/images/team/raiyan-ahmed.jpg",
-    linkedin: "https://www.linkedin.com/in/raiyan-ahmed-454a18218/",
-  },
-  {
-    name: "Shahrain Zaman",
-    role: "Sustainability Developer",
-    photo: "/images/team/shahrain-zaman.jpg",
-    linkedin: "https://www.linkedin.com/in/shahrain-zaman-86995316b/",
-  },
-  {
     name: "Jerin Tasnim",
     role: "Sustainability Developer",
     photo: "/images/team/jerin-tasnim.jpg",
@@ -226,12 +208,6 @@ const engineers: TeamMember[] = [
     role: "Sustainability Engineer",
     photo: "/images/team/mejar-liman.jpg",
     linkedin: "https://www.linkedin.com/in/md-mejar-alam-liman-8b4b60169/",
-  },
-  {
-    name: "Kazi Shafin",
-    role: "Sustainability Developer",
-    photo: "/images/team/kazi-shafin.jpg",
-    linkedin: "https://www.linkedin.com/in/kazi-asfaqur-rahman-shafin-619147210/",
   },
   {
     name: "Nafis Wadud",
