@@ -1,0 +1,188 @@
+/* StarBorder — React Bits inspired animated comet-trail border. */
+
+.star-border-container {
+  display: inline-block;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  vertical-align: top;
+  isolation: isolate;
+}
+
+.star-border-container .border-gradient-bottom,
+.star-border-container .border-gradient-top {
+  position: absolute;
+  /* Width chosen together with the offsets below so that at frame 0 the
+     bright head of the gradient sits exactly on the container's edge —
+     not several container-widths off-screen. This is what makes the
+     comet appear instantly on hover instead of after a long lead-in
+     while the bright spot travels into the visible area. */
+  width: 200%;
+  height: 60px;
+  opacity: 0.95;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(0.5px);
+}
+
+.star-border-container .border-gradient-bottom {
+  bottom: -30px;
+  /* width 200% + right -100% → bright centre lands on container's
+     right edge at frame 0. */
+  right: -100%;
+  animation: star-movement-bottom linear infinite alternate;
+}
+
+.star-border-container .border-gradient-top {
+  top: -30px;
+  /* width 200% + left -100% → bright centre lands on container's
+     left edge at frame 0. */
+  left: -100%;
+  animation: star-movement-top linear infinite alternate;
+}
+
+.star-border-container .inner-content {
+  position: relative;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* Keyframes deliberately animate ONLY `transform` — never `opacity`.
+   A running CSS animation overrides any `opacity` set via regular
+   rules / transitions, which would defeat the hover fade-in/out
+   logic below. The visible "comet head fading into a tail" look is
+   produced by the radial-gradient stops (transparent at 35%), not by
+   keyframe opacity.
+
+   Translate distance is half the gradient width (-/+50% × 200% = -/+100%
+   of the container width). Combined with the offset positions above,
+   this sweeps the bright centre exactly from one container edge to
+   the other over one animation cycle, then `alternate` reverses it —
+   so the comet is visible across the entire animation duration with
+   no off-screen "dead time". */
+@keyframes star-movement-bottom {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  100% {
+    transform: translate(-50%, 0%);
+  }
+}
+
+@keyframes star-movement-top {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  100% {
+    transform: translate(50%, 0%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star-border-container .border-gradient-bottom,
+  .star-border-container .border-gradient-top {
+    animation: none;
+    opacity: 0.45;
+  }
+}
+
+/* ─── Hover-only mode ─────────────────────────────────────────
+   When `.is-hover-only` is on the container, the comet trails
+   keep running continuously but are invisible by default. They
+   simply fade in on hover and fade out on leave — the comet
+   itself never freezes, so the trail glides away gently rather
+   than locking in place. The animation is purely a GPU-composited
+   `transform` on a fully transparent element, so leaving it
+   running on dozens of cards has no measurable cost.
+
+   We deliberately do NOT use `:focus-within` here: when a user
+   clicks an `<a target="_blank">` link inside a card, focus stays
+   on that anchor after the new tab opens, which would make the
+   card appear to animate "by itself" indefinitely. Same problem
+   with keyboard tab-navigation walking focus from card to card.
+   `:hover` alone gives the per-card behaviour we want. */
+
+.star-border-container.is-hover-only .border-gradient-bottom,
+.star-border-container.is-hover-only .border-gradient-top {
+  opacity: 0;
+  transition: opacity 0.55s ease-out;
+}
+
+.star-border-container.is-hover-only:hover .border-gradient-bottom,
+.star-border-container.is-hover-only:hover .border-gradient-top,
+.group:hover .star-border-container.is-hover-only .border-gradient-bottom,
+.group:hover .star-border-container.is-hover-only .border-gradient-top {
+  opacity: 0.95;
+  transition: opacity 0.25s ease-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star-border-container.is-hover-only .border-gradient-bottom,
+  .star-border-container.is-hover-only .border-gradient-top {
+    animation: none;
+  }
+  .star-border-container.is-hover-only:hover .border-gradient-bottom,
+  .star-border-container.is-hover-only:hover .border-gradient-top,
+  .group:hover .star-border-container.is-hover-only .border-gradient-bottom,
+  .group:hover .star-border-container.is-hover-only .border-gradient-top {
+    opacity: 0.45;
+  }
+}
+
+/* ─── Controlled (React-driven) mode ──────────────────────────
+   When the `active` prop is supplied to <StarBorder>, the
+   container gets `.is-controlled` and visibility is driven
+   exclusively by `.is-active` — CSS :hover is intentionally
+   ignored so a parent component can own hover state in React
+   and guarantee one-card-at-a-time behaviour without depending
+   on browser hover/focus plumbing.
+
+   `.is-animating` is set by the React component for a few hundred
+   ms either side of the hover so the keyframe animation actually
+   stops between hovers — instead of running invisibly in the
+   background and making each fresh hover pick up mid-stride.
+   Each hover-in remounts the gradient elements via a key change,
+   which restarts the keyframe from frame 0. */
+
+.star-border-container.is-controlled .border-gradient-bottom,
+.star-border-container.is-controlled .border-gradient-top {
+  /* No animation by default — the comet is fully stopped at frame 0
+     (which positions the bright head off-screen anyway) and invisible. */
+  animation: none;
+  opacity: 0;
+  transition: opacity 0.55s ease-out;
+}
+
+.star-border-container.is-controlled.is-animating .border-gradient-bottom {
+  animation: star-movement-bottom linear infinite alternate;
+}
+
+.star-border-container.is-controlled.is-animating .border-gradient-top {
+  animation: star-movement-top linear infinite alternate;
+}
+
+.star-border-container.is-controlled.is-active .border-gradient-bottom,
+.star-border-container.is-controlled.is-active .border-gradient-top {
+  /* Snap to full opacity on activation — no fade-in. The fade-out
+     transition (0.55s, set on `.is-controlled` above) only applies
+     when the active state is removed, so the comet vanishes
+     gracefully but appears instantly. */
+  opacity: 0.95;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star-border-container.is-controlled .border-gradient-bottom,
+  .star-border-container.is-controlled .border-gradient-top {
+    animation: none;
+  }
+  .star-border-container.is-controlled.is-animating .border-gradient-bottom,
+  .star-border-container.is-controlled.is-animating .border-gradient-top {
+    animation: none;
+  }
+  .star-border-container.is-controlled.is-active .border-gradient-bottom,
+  .star-border-container.is-controlled.is-active .border-gradient-top {
+    opacity: 0.45;
+  }
+}

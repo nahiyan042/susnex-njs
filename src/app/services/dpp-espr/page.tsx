@@ -6,7 +6,7 @@ import { dppEsprData } from "@/lib/content/services";
 export const metadata = pageSeo({
   title: "Digital Product Passport (DPP) & ESPR Readiness",
   description:
-    "Textile data architecture, traceability systems, and EU-ready sustainability disclosure workflows for Digital Product Passports.",
+    "Prepare for EU ESPR and Digital Product Passport requirements with textile traceability, product data architecture, supplier workflows, and sustainability disclosure support.",
   path: "/services/dpp-espr",
 });
 
@@ -19,7 +19,7 @@ export default function DppEspr() {
           __html: JSON.stringify(
             serviceJsonLd(
               "Digital Product Passport (DPP) & ESPR Readiness",
-              "Textile data architecture, traceability systems, and EU-ready sustainability disclosure workflows for Digital Product Passports.",
+              "Prepare for EU ESPR and Digital Product Passport requirements with textile traceability, product data architecture, supplier workflows, and sustainability disclosure support.",
               "/services/dpp-espr",
             ),
           ),
@@ -27,7 +27,7 @@ export default function DppEspr() {
       />
       <PageHeader
         title="Digital Product Passport (DPP) & ESPR Readiness"
-        description="Build product-level data systems for EU textile compliance and competitive advantage."
+        description="Build traceable, regulation-ready product data systems for Digital Product Passports, ESPR requirements, and circular textile supply chains."
       />
       <ServicePageTemplate data={dppEsprData} />
     </main>

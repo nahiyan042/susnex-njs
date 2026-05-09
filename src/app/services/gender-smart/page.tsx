@@ -65,6 +65,35 @@ const data: ServicePageData = {
     { title: "Collaborative Partnership", description: "We embed within your organization to ensure sustainable, lasting change." },
     { title: "Multidisciplinary Team", description: "Gender specialists, trainers, and auditors working together for comprehensive solutions." },
   ],
+  roadmap: {
+    heading: "Program Roadmap",
+    subheading:
+      "From kickoff to continuous improvement, every GESI engagement follows a structured 12-step journey — embedding gender equality, social inclusion, and harassment-free practices into the fabric of your organization.",
+    /*
+     * Same 12-node S-curve as the ESG roadmap (default layout). The
+     * source diagram contains two minor typos — "Improvemnt Report"
+     * and "Continous Improvement Plan" — corrected here for
+     * production copy. Revert to the verbatim spellings if the
+     * stakeholder prefers a literal reproduction of the source
+     * artwork. Several nodes carry only a title (no subtitle) — the
+     * `subtitle` field is optional and intentionally omitted on
+     * those steps.
+     */
+    steps: [
+      { title: "Kickoff Meeting",                subtitle: "Contract & NDA Signing",          icon: "play" },
+      { title: "Assessment and Research",        subtitle: "Understanding the Organization",  icon: "search" },
+      { title: "Creating an Inclusive Policy",   subtitle: "Mapping the Program and Scope",   icon: "document" },
+      { title: "Training & Awareness",                                                        icon: "training" },
+      { title: "Empowering Women Employees",     subtitle: "Mentorship Program & Workshop",   icon: "heart" },
+      { title: "Supplier Engagement",                                                         icon: "link" },
+      { title: "Community Engagement",                                                        icon: "users" },
+      { title: "Performance Monitoring Program",                                              icon: "chart" },
+      { title: "Collaboration & Advocacy",                                                    icon: "megaphone" },
+      { title: "Celebration & Recognition",                                                   icon: "award" },
+      { title: "Improvement Report",                                                          icon: "clipboard" },
+      { title: "Continuous Improvement Plan",                                                 icon: "handshake" },
+    ],
+  },
 };
 
 export default function GenderSmart() {

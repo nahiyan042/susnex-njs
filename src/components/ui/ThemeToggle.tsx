@@ -14,7 +14,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-border transition-colors hover:bg-bg-secondary"
+      className="neo-icon-btn flex h-9 w-9 items-center justify-center rounded-full border border-border transition-colors hover:bg-bg-secondary"
       aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`}
     >
       {resolvedTheme === "dark" ? (

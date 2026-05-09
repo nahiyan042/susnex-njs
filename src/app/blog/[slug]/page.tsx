@@ -99,7 +99,7 @@ export default async function BlogPost({
       {/* Content */}
       <article className="mx-auto max-w-3xl px-6 py-16 lg:py-24">
         <div
-          className="prose prose-lg max-w-none text-text-secondary prose-headings:font-heading prose-headings:text-text-primary prose-a:text-[var(--color-green)] prose-strong:text-text-primary"
+          className="blog-prose"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
         <div className="mt-12 border-t border-border pt-8">

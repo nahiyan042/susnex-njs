@@ -1,9 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { SectionBackground } from "@/components/ui/SectionBackground";
 import { GradualBlur } from "@/components/ui/GradualBlur";
+import { CountUp } from "@/components/ui/CountUp";
+import { ClientLogoTile } from "@/components/services/ClientLogoTile";
+
+const STAT_DURATION = 2; // seconds — shared across all stats for sync
 
 interface LogoItem {
   src: string;
@@ -87,15 +92,19 @@ export function AboutContent({
   partnerLogos: LogoItem[];
   clientLogos: LogoItem[];
 }) {
+  // Single in-view trigger for all three stat counters — guarantees they
+  // all start (and therefore finish) at the same moment.
+  const statsTriggerRef = useRef<HTMLDivElement>(null);
+  const statsInView = useInView(statsTriggerRef, {
+    once: true,
+    margin: "-80px",
+  });
+
   return (
     <>
       {/* Bento Grid */}
       <section className="relative bg-bg-primary">
-        <SectionBackground
-          lightSrc="/images/backgrounds/bg-about-light.png"
-          darkSrc="/images/backgrounds/bg-about-dark.png"
-          opacity={0.2}
-        />
+        <SectionBackground opacity={0.2} variant="leaf-canopy" />
         <div className={sectionClass}>
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
             {/* About text (2 cols) */}
@@ -145,14 +154,22 @@ export function AboutContent({
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </motion.div>
 
-            {/* Stats row */}
+            {/* Stats row — all three counters share `statsInView` so they
+                start together and finish together (synchronized). */}
             <motion.div
+              ref={statsTriggerRef}
               {...fadeUp}
               transition={{ ...fadeUp.transition, delay: 0.15 }}
               className="flex flex-col items-center justify-center rounded-2xl border border-border bg-[var(--color-green)] p-6 text-center text-white"
             >
               <GlobeIcon className="mb-2 h-8 w-8 text-white/80" />
-              <span className="font-heading text-3xl font-bold">60+</span>
+              <CountUp
+                to={60}
+                suffix="+"
+                duration={STAT_DURATION}
+                play={statsInView}
+                className="font-heading text-3xl font-bold tabular-nums"
+              />
               <span className="mt-1 text-sm text-white/80">Star Clients</span>
             </motion.div>
 
@@ -162,7 +179,13 @@ export function AboutContent({
               className="flex flex-col items-center justify-center rounded-2xl border border-border bg-bg-card/80 p-6 text-center backdrop-blur-sm"
             >
               <ShieldIcon className="mb-2 h-8 w-8 text-[var(--color-green)]" />
-              <span className="font-heading text-3xl font-bold">12+</span>
+              <CountUp
+                to={12}
+                suffix="+"
+                duration={STAT_DURATION}
+                play={statsInView}
+                className="font-heading text-3xl font-bold tabular-nums"
+              />
               <span className="mt-1 text-sm text-text-secondary">Partners</span>
             </motion.div>
 
@@ -172,7 +195,13 @@ export function AboutContent({
               className="flex flex-col items-center justify-center rounded-2xl border border-border bg-bg-card/80 p-6 text-center backdrop-blur-sm"
             >
               <LeafIcon className="mb-2 h-8 w-8 text-[var(--color-green)]" />
-              <span className="font-heading text-3xl font-bold">8+</span>
+              <CountUp
+                to={8}
+                suffix="+"
+                duration={STAT_DURATION}
+                play={statsInView}
+                className="font-heading text-3xl font-bold tabular-nums"
+              />
               <span className="mt-1 text-sm text-text-secondary">Services</span>
             </motion.div>
 
@@ -186,10 +215,19 @@ export function AboutContent({
                 <VisionIcon className="h-6 w-6 text-white" />
               </span>
               <h3 className="font-heading text-xl font-bold tracking-tight">Our Vision</h3>
+              {/*
+               * Verbatim from susnex.com → "About Us → Our Vision".
+               * The previous copy here had been trimmed to the first
+               * sentence; the second sentence ("To meet the current
+               * and future needs…") is restored from the canonical
+               * source so the brand language matches the live site.
+               */}
               <p className="mt-3 leading-relaxed text-text-secondary">
-                To provide exceptional professional services in Sustainability,
-                Ethical Trading &amp; Conformity while maintaining the highest
-                levels of integrity and competence.
+                To provide exceptional professional services in the areas of
+                Sustainability, Ethical Trading &amp; Conformity while
+                maintaining the highest levels of integrity and competence.
+                To meet the current and future needs of our clients and
+                help them to cultivate long-term success.
               </p>
             </motion.div>
 
@@ -203,9 +241,23 @@ export function AboutContent({
                 <MissionIcon className="h-6 w-6 text-white" />
               </span>
               <h3 className="font-heading text-xl font-bold tracking-tight">Our Mission</h3>
+              {/*
+               * Verbatim from susnex.com → "About Us → Our Mission".
+               * Restores the second sentence ("We strongly believe in
+               * enabling those who we work with…") that had been
+               * dropped from the local copy. Phrasing — including the
+               * "Our Mission is to" lead and "remain sustainable
+               * successful" — is preserved as it appears on the live
+               * site rather than silently rewritten.
+               */}
               <p className="mt-3 leading-relaxed text-text-secondary">
-                To provide best quality services with reliable data so clients
-                can meet sustainability goals and report performance publicly.
+                Our Mission is to provide best quality services with reliable
+                data and information so that our clients can meet their
+                sustainability goals and can report their performance publicly.
+                We strongly believe in enabling those who we work with,
+                transferring our knowledge and building capability of our
+                clients, and our aim is to ensure the solutions we provided
+                remain sustainable successful after we complete our work.
               </p>
             </motion.div>
 
@@ -219,10 +271,33 @@ export function AboutContent({
                 <QualityIcon className="h-6 w-6 text-white" />
               </span>
               <h3 className="font-heading text-xl font-bold tracking-tight">Quality Policy</h3>
+              {/*
+               * Verbatim from susnex.com → "Quality Policy" (homepage
+               * About section). Two paragraphs on the live site:
+               *   1. SusNex's commitment to client requirements,
+               *      supply-chain accountability, and legal
+               *      compliance.
+               *   2. The role of the Quality Management System in
+               *      enhancing client satisfaction and driving
+               *      continual improvement.
+               * Both are restored here; the prior copy collapsed all
+               * of this into a single short sentence.
+               */}
               <p className="mt-3 leading-relaxed text-text-secondary">
-                SusNex gives best professional services in Sustainability,
-                Ethical Trading, and Conformity with the highest integrity and
-                commitment to exceeding client requirements.
+                To give the best professional services in Sustainability,
+                Ethical Trading, and Conformity with the highest integrity
+                and competence. Meet our clients&rsquo; current and future
+                demands and help them succeed. Therefore, SusNex recognizes
+                the importance and the stakes of the business supply chain.
+                SusNex is committed to meet and exceed the requirements of
+                our valued clients and comply with all the legal requirements
+                applicable to the scope of its services.
+              </p>
+              <p className="mt-3 leading-relaxed text-text-secondary">
+                The Quality Management System is a trusted instrument of
+                SusNex, which is deployed to enhance client satisfaction and
+                continually improve the quality of services rendered to our
+                valued clients for organizational growth and development.
               </p>
             </motion.div>
           </div>
@@ -263,11 +338,7 @@ export function AboutContent({
 
       {/* Clients */}
       <section className="relative bg-bg-primary">
-        <SectionBackground
-          lightSrc="/images/backgrounds/bg-services-light.png"
-          darkSrc="/images/backgrounds/bg-services-dark.png"
-          opacity={0.15}
-        />
+        <SectionBackground opacity={0.15} variant="eco-nodes" />
         <div className={sectionClass}>
           <GradualBlur>
             <h2 className="text-center font-heading text-2xl font-bold tracking-tight sm:text-3xl">
@@ -276,23 +347,17 @@ export function AboutContent({
           </GradualBlur>
           <div className="mt-8 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-6">
             {clientLogos.map((logo, i) => (
-              <motion.div
+              <ClientLogoTile
                 key={logo.src}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.02 }}
-                whileHover={{ scale: 1.08, y: -4 }}
-                className="flex items-center justify-center rounded-xl border border-border bg-bg-card/80 p-4 backdrop-blur-sm transition-shadow hover:shadow-lg hover:border-[var(--color-green)]/30"
-              >
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={240}
-                  height={240}
-                  className="h-auto max-h-28 w-auto object-contain"
-                />
-              </motion.div>
+                src={logo.src}
+                name={logo.alt}
+                motionProps={{
+                  initial: { opacity: 0, scale: 0.9 },
+                  whileInView: { opacity: 1, scale: 1 },
+                  viewport: { once: true },
+                  transition: { duration: 0.3, delay: i * 0.02 },
+                }}
+              />
             ))}
           </div>
         </div>

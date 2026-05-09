@@ -58,9 +58,9 @@ const services = [
   },
   {
     href: "/services/speak-for-change",
-    title: "amfori Speak for Change Implementation",
+    title: "Worker Voice & Grievance Mechanism Implementation",
     description:
-      "Supply-chain grievance mechanism setup, guided remediation, and due-diligence reporting support.",
+      "Worker grievance mechanism setup, supplier onboarding, case triage, guided remediation, and due-diligence reporting aligned with amfori Speak for Change.",
     image: "/images/services/speak-for-change.webp",
   },
   {

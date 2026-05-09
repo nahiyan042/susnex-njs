@@ -189,6 +189,82 @@ export function CoursePageTemplate({ course }: { course: TrainingCourse }) {
         </div>
       </section>
 
+      {/* Course Structure — sequenced learning journey */}
+      {course.courseStructure && course.courseStructure.length > 0 && (
+        <section className="border-t border-border bg-bg-secondary px-6 py-16 lg:py-24">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="font-heading text-2xl font-bold tracking-tight sm:text-3xl">
+              Course Structure
+            </h2>
+            <p className="mt-3 max-w-2xl text-text-secondary">
+              A guided learning journey that takes you from fundamentals to
+              applied workshop practice.
+            </p>
+
+            <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {course.courseStructure.map((phase, i) => (
+                <li
+                  key={phase}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-bg-card p-6 transition-all hover:-translate-y-0.5 hover:border-[var(--color-green)]/30 hover:shadow-lg"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="absolute right-4 top-4 font-heading text-5xl font-black text-[var(--color-green)]/10 transition-colors group-hover:text-[var(--color-green)]/20"
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-green)]/10 text-xs font-bold text-[var(--color-green)]">
+                    {i + 1}
+                  </span>
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-text-primary">
+                    {phase}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
+
+      {/* What's Included — curriculum topic chips */}
+      {course.whatsIncluded && course.whatsIncluded.length > 0 && (
+        <section className="border-t border-border bg-bg-primary px-6 py-16 lg:py-24">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="font-heading text-2xl font-bold tracking-tight sm:text-3xl">
+              What&apos;s Included
+            </h2>
+            <p className="mt-3 max-w-2xl text-text-secondary">
+              Curriculum topics covered across the program — built around what
+              participants actually use on the job.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-3">
+              {course.whatsIncluded.map((topic) => (
+                <span
+                  key={topic}
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-bg-card px-4 py-2 text-sm font-medium text-text-primary transition-all hover:-translate-y-0.5 hover:border-[var(--color-green)]/40 hover:text-[var(--color-green)] hover:shadow-md"
+                >
+                  <svg
+                    className="h-4 w-4 text-[var(--color-green)]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2.25}
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4.5 12.75l6 6 9-13.5"
+                    />
+                  </svg>
+                  {topic}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Trainers */}
       <section className="border-t border-border bg-bg-secondary px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-6xl">
@@ -233,11 +309,60 @@ export function CoursePageTemplate({ course }: { course: TrainingCourse }) {
         </div>
       </section>
 
+      {/* Professional Benefits — career-focused callout */}
+      {course.professionalBenefits && (
+        <section className="border-t border-border bg-bg-secondary px-6 py-16 lg:py-24">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="font-heading text-2xl font-bold tracking-tight sm:text-3xl">
+              Professional Benefits
+            </h2>
+            <p className="mt-3 max-w-2xl text-text-secondary">
+              What you take away as a practitioner — beyond the certificate.
+            </p>
+
+            <div className="relative mt-8 overflow-hidden rounded-2xl border border-[var(--color-green)]/30 bg-gradient-to-br from-[var(--color-green)]/10 via-bg-card to-bg-card p-8 sm:p-10">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[var(--color-green)]/10 blur-3xl"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-12 -left-12 h-44 w-44 rounded-full bg-[var(--color-green)]/10 blur-3xl"
+              />
+
+              <div className="relative flex flex-col gap-6 sm:flex-row sm:items-start">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[var(--color-green)] text-white shadow-lg shadow-[var(--color-green)]/25">
+                  <svg
+                    className="h-7 w-7"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.75}
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 8.689c0-.864.933-1.405 1.683-.977l7.108 4.061a1.125 1.125 0 010 1.954l-7.108 4.061A1.125 1.125 0 013 16.811V8.69zM12.75 8.689c0-.864.933-1.405 1.683-.977l7.108 4.061a1.125 1.125 0 010 1.954l-7.108 4.061a1.125 1.125 0 01-1.683-.977V8.69z"
+                    />
+                  </svg>
+                </div>
+
+                <div>
+                  <p className="font-heading text-lg leading-relaxed text-text-primary sm:text-xl">
+                    {course.professionalBenefits}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Benefits */}
-      <section className="border-t border-border bg-bg-secondary px-6 py-16 lg:py-24">
+      <section className="border-t border-border bg-bg-primary px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-heading text-2xl font-bold tracking-tight sm:text-3xl">
-            Benefits
+            Program Benefits
           </h2>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {course.benefits.map((benefit) => (
@@ -253,7 +378,7 @@ export function CoursePageTemplate({ course }: { course: TrainingCourse }) {
       </section>
 
       {/* Who Should Attend */}
-      <section className="border-t border-border bg-bg-primary px-6 py-16 lg:py-24">
+      <section className="border-t border-border bg-bg-secondary px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-heading text-2xl font-bold tracking-tight sm:text-3xl">
             Who Should Attend
@@ -285,7 +410,7 @@ export function CoursePageTemplate({ course }: { course: TrainingCourse }) {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-border bg-bg-secondary px-6 py-16 lg:py-24">
+      <section className="border-t border-border bg-bg-primary px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-6xl text-center">
           <h2 className="font-heading text-2xl font-bold tracking-tight sm:text-3xl">
             Ready to Get Started?

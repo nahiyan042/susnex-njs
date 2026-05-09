@@ -40,11 +40,7 @@ const programs = [
 export function Academy() {
   return (
     <section className="relative bg-bg-primary py-24 lg:py-32">
-      <SectionBackground
-        lightSrc="/images/backgrounds/bg-academy-light.png"
-        darkSrc="/images/backgrounds/bg-academy-dark.png"
-        opacity={0.25}
-      />
+      <SectionBackground opacity={0.25} variant="circular-economy" />
       <div className="relative mx-auto max-w-7xl px-6">
         <GradualBlur>
           <ScrollReveal direction="up">
@@ -69,7 +65,7 @@ export function Academy() {
               <StarBorderCard speed={6.5} className="h-full">
                 <Link
                   href={program.href}
-                  className="group flex h-full flex-col overflow-hidden rounded-[inherit] bg-bg-card"
+                  className="neo-surface group flex h-full flex-col overflow-hidden rounded-[inherit] bg-bg-card"
                 >
                   <div className="relative aspect-[16/9] overflow-hidden">
                     <Image
@@ -138,7 +134,7 @@ export function Academy() {
           <div className="mt-12 text-center">
             <Link
               href="/academy"
-              className="inline-flex items-center justify-center rounded-full bg-[var(--color-green)] px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-green-dark)]"
+              className="neo-button-primary inline-flex items-center justify-center rounded-full bg-[var(--color-green)] px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-green-dark)]"
             >
               Explore All Programs
             </Link>

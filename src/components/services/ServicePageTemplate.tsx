@@ -5,6 +5,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { ServiceInquiryForm } from "@/components/forms/ServiceInquiryForm";
+import {
+  ProgramRoadmap,
+  type RoadmapStep,
+  type RoadmapLayout,
+} from "@/components/services/ProgramRoadmap";
+import { ClientLogoTile } from "@/components/services/ClientLogoTile";
 
 export interface Expert {
   name: string;
@@ -29,6 +35,25 @@ export interface StandardLogo {
   url?: string;
 }
 
+/**
+ * A real client whose logo we display in the "Our Clients" wall on a
+ * service page. `name` doubles as the alt text and the hover tooltip.
+ * Kept structurally identical to the About page's client tile so the
+ * same `.logo-tile` (light-sage gradient) styling applies everywhere.
+ */
+export interface ClientLogo {
+  src: string;
+  name: string;
+  /**
+   * When true the logo gets a bigger fill ratio inside its square tile
+   * (~92% vs the default ~78%). Useful for flagship marks like industry
+   * bodies (e.g. BGMEA) or anchor brand partners (H&M) where you want
+   * the logo to dominate its tile. Tile size itself does NOT change —
+   * tiles are uniform squares — only the logo within scales up.
+   */
+  prominent?: boolean;
+}
+
 export interface ServicePageData {
   title: string;
   subtitle: string;
@@ -40,6 +65,42 @@ export interface ServicePageData {
   standards?: string[];
   standardsImage?: string;
   standardLogos?: StandardLogo[];
+  /**
+   * Optional client logo wall. Renders as a "Our Clients" section after
+   * "Why Choose Us" when present. Tile aesthetic (white tile, dark-mode
+   * lift) follows the existing About page pattern.
+   */
+  clientLogos?: ClientLogo[];
+  /**
+   * Optional eyebrow/heading override for the client section. Defaults to
+   * "Our Clients" — set this to e.g. "Trusted by Leading Reporters" if a
+   * specific service wants to frame the logo wall differently.
+   */
+  clientLogosHeading?: string;
+  /**
+   * Optional one-liner shown under the client section heading.
+   */
+  clientLogosSubheading?: string;
+  /**
+   * Optional engagement roadmap. When present, renders an animated
+   * serpentine "Program Roadmap" section between "Expected Outcomes"
+   * and "Standards & Frameworks" — i.e. a visual answer to "how does
+   * an engagement actually unfold?". The desktop view is an S-curve
+   * SVG with a path that draws on scroll; mobile collapses to a
+   * vertical timeline.
+   */
+  roadmap?: {
+    heading?: string;
+    subheading?: string;
+    steps: RoadmapStep[];
+    /**
+     * Selects which pre-baked SVG layout the roadmap uses. Defaults to
+     * "esg" (12 nodes, both loop apexes occupied). Use "energy" for the
+     * 11-node Energy & Carbon Management variant (no left-loop apex,
+     * 4 nodes in the bottom row).
+     */
+    layout?: RoadmapLayout;
+  };
   formService: string;
   accentColor?: string;
 }
@@ -212,6 +273,18 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
+      {/* Program Roadmap */}
+      {data.roadmap && data.roadmap.steps.length > 0 && (
+        <section className="border-t border-border bg-bg-secondary px-6 py-16 lg:py-24">
+          <ProgramRoadmap
+            steps={data.roadmap.steps}
+            heading={data.roadmap.heading}
+            subheading={data.roadmap.subheading}
+            layout={data.roadmap.layout}
+          />
+        </section>
+      )}
+
       {/* Standards & Frameworks */}
       {(data.standards || data.standardsImage || data.standardLogos) && (
         <section className="border-t border-border bg-bg-secondary px-6 py-16 lg:py-24">
@@ -360,8 +433,44 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
+      {/* Our Clients */}
+      {data.clientLogos && data.clientLogos.length > 0 && (
+        <section className="border-t border-border bg-bg-secondary px-6 py-16 lg:py-24">
+          <div className="mx-auto max-w-6xl">
+            <ScrollReveal>
+              <h2 className="text-center font-heading text-2xl font-bold tracking-tight sm:text-3xl">
+                {data.clientLogosHeading ?? "Our Clients"}
+              </h2>
+              {data.clientLogosSubheading && (
+                <p className="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-text-secondary sm:text-base">
+                  {data.clientLogosSubheading}
+                </p>
+              )}
+            </ScrollReveal>
+
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              className="mt-10 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-6"
+            >
+              {data.clientLogos.map((logo) => (
+                <ClientLogoTile
+                  key={logo.src}
+                  src={logo.src}
+                  name={logo.name}
+                  prominent={logo.prominent}
+                  motionProps={{ variants: fadeUp }}
+                />
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* CTA + Form */}
-      <section className="border-t border-border bg-bg-secondary px-6 py-16 lg:py-24">
+      <section className="border-t border-border bg-bg-primary px-6 py-16 lg:py-24">
         <div className="mx-auto max-w-5xl text-center">
           <ScrollReveal>
             <h2 className="font-heading text-2xl font-bold tracking-tight sm:text-3xl">

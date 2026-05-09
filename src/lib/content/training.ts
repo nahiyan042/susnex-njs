@@ -8,6 +8,21 @@ export interface TrainingCourse {
   level: string;
   format: string;
   description: string;
+  /**
+   * Curriculum topics that will be covered. Rendered as a tag/pill grid
+   * on the course page so participants can scan exactly what is taught.
+   */
+  whatsIncluded: string[];
+  /**
+   * Single-paragraph statement of what the participant gains
+   * professionally — the "career outcome" callout.
+   */
+  professionalBenefits: string;
+  /**
+   * Sequenced phases of the program. Rendered as a numbered flow on
+   * the course page so participants understand the learning journey.
+   */
+  courseStructure: string[];
   keyOutcomes: string[];
   benefits: string[];
   whoShouldAttend: string[];
@@ -79,6 +94,26 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "Online / In-Person",
     description:
       "A complete reporting-to-certification pathway covering GRI standards application, materiality assessment, data management workflows, disclosure writing, assurance readiness, and exam preparation. Participants graduate with the practical ability to lead sustainability report development and sit for GRI professional certification.",
+    whatsIncluded: [
+      "GRI Standards application",
+      "Double materiality assessment",
+      "Stakeholder engagement",
+      "ESG data collection workflows",
+      "Disclosure writing",
+      "Assurance readiness",
+      "GRI Professional Certification exam prep",
+      "Mock test workshops",
+    ],
+    professionalBenefits:
+      "Build the practical capability to lead sustainability reporting projects end-to-end, improve ESG disclosure quality across your organization, and prepare with confidence to sit for the GRI Professional Certification Exam — a globally recognized credential for sustainability reporting professionals.",
+    courseStructure: [
+      "GRI fundamentals & reporting principles",
+      "Materiality assessment & stakeholder mapping",
+      "ESG data management & governance",
+      "Disclosure writing across Universal, Sector & Topic Standards",
+      "Assurance readiness & report quality review",
+      "Mock exam, peer review & reporting workshop",
+    ],
     keyOutcomes: [
       "Build publication-ready sustainability report structures",
       "Master GRI Universal, Sector, and Topic Standards",
@@ -112,6 +147,26 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "In-Person",
     description:
       "Comprehensive ASHRAE-protocol energy audit training for industrial facilities. Covers energy fundamentals, primary/secondary energy sources, Bangladesh energy policy context, walk-through and detailed audit methods, direct and indirect loss identification, supply/demand side management, cogeneration and trigeneration systems, energy carrier quality, and energy efficiency & conservation (EE&C) measures — with SBTi-aligned emission reduction framing.",
+    whatsIncluded: [
+      "Energy fundamentals & sources",
+      "ASHRAE walk-through & detailed audit methods",
+      "Energy balance calculation",
+      "Direct & indirect loss identification",
+      "Supply-side management",
+      "Demand-side management",
+      "Cogeneration & trigeneration",
+      "EE&C measures & investment-grade reporting",
+    ],
+    professionalBenefits:
+      "Gain practical, on-the-job audit skills that let you identify energy savings, reduce operational costs, and support corporate carbon reduction targets — positioning you as a credible energy auditor for industrial facilities, sustainability programs, and BERC compliance.",
+    courseStructure: [
+      "Energy systems & Bangladesh policy context",
+      "Audit planning & ASHRAE protocol overview",
+      "Site walkthrough & data-collection methods",
+      "Loss identification & energy balance analysis",
+      "Savings calculation & EE&C measure prioritization",
+      "Investment-grade audit report preparation",
+    ],
     keyOutcomes: [
       "Understand energy forms, conversion, and the Bangladesh energy supply landscape",
       "Conduct ASHRAE-protocol walk-through and detailed energy audits",
@@ -147,6 +202,24 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "Online / In-Person",
     description:
       "Practical preparation for SLCP Converged Assessment Framework (CAF) completion, covering data collection quality, self-assessment best practices, verification readiness, worker engagement techniques, and corrective action plan execution.",
+    whatsIncluded: [
+      "SLCP & CAF overview",
+      "CAF data collection",
+      "Self-assessment quality",
+      "Verification readiness",
+      "Worker engagement techniques",
+      "Corrective action planning",
+      "Evidence management",
+    ],
+    professionalBenefits:
+      "Equip yourself to lead SLCP submissions confidently — improving verification outcomes, reducing audit fatigue, and strengthening buyer confidence in your facility's social compliance maturity.",
+    courseStructure: [
+      "SLCP & Converged Assessment Framework introduction",
+      "Data collection planning & responsibilities",
+      "Self-assessment workshop with real CAF scenarios",
+      "Verification readiness drills",
+      "Corrective action planning & evidence packaging",
+    ],
     keyOutcomes: [
       "Reduce data errors and inconsistencies in CAF submissions",
       "Improve verification pass rates and audit outcomes",
@@ -175,6 +248,24 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "Online / In-Person",
     description:
       "Design and operationalize Gender Equality and Social Inclusion (GESI) frameworks covering policy architecture, anti-harassment committee formation, prevention mechanisms, and performance monitoring systems.",
+    whatsIncluded: [
+      "GESI principles & frameworks",
+      "Gender-responsive policy design",
+      "Anti-harassment committee setup",
+      "Prevention & response protocols",
+      "Inclusive workplace practices",
+      "Grievance response handling",
+      "Workplace inclusion indicators",
+    ],
+    professionalBenefits:
+      "Build the capacity to design, implement, and monitor inclusive workplaces that meet buyer and social compliance expectations — strengthening your role as an HR, CSR, or compliance leader driving cultural change at scale.",
+    courseStructure: [
+      "GESI principles & global standards",
+      "Workplace risk mapping & gender analysis",
+      "Policy & anti-harassment committee setup",
+      "Prevention & response system design",
+      "Monitoring indicators & continuous improvement",
+    ],
     keyOutcomes: [
       "Develop gender-responsive workplace policies",
       "Establish functional anti-harassment committees",
@@ -205,6 +296,24 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "Online / In-Person",
     description:
       "Build legally compliant and worker-trusted grievance mechanisms with structured intake, triage, investigation, remedy, and closure protocols aligned with Bangladesh Labour Act requirements.",
+    whatsIncluded: [
+      "Bangladesh Labour Law requirements",
+      "Worker complaint intake design",
+      "Triage & escalation protocols",
+      "Investigation & remedy planning",
+      "Closure & documentation systems",
+      "Audit-ready evidence",
+      "Simulation & corrective action",
+    ],
+    professionalBenefits:
+      "Develop the legal, procedural, and HR fluency needed to design grievance systems that hold up to Bangladesh Labour Law, buyer audits, and worker scrutiny — making you a trusted internal lead for workplace dispute resolution.",
+    courseStructure: [
+      "Bangladesh Labour Law & legal expectations",
+      "Mechanism architecture & roles",
+      "Case-handling workflow design",
+      "Documentation & escalation systems",
+      "Simulation, role-play & corrective action workshop",
+    ],
     keyOutcomes: [
       "Design legally aligned grievance intake and response flows",
       "Establish clear roles, timelines, and escalation procedures",
@@ -233,6 +342,25 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "Online / In-Person",
     description:
       "Comprehensive training on integrated planning, deployment, and internal audit of Quality (ISO 9001), Environmental (ISO 14001), and Occupational Health & Safety (ISO 45001) management systems.",
+    whatsIncluded: [
+      "ISO 9001, 14001 & 45001 integration",
+      "Annex SL high-level structure",
+      "Risk-based thinking",
+      "Process mapping",
+      "Documentation control",
+      "Internal audit planning",
+      "Nonconformity management",
+      "Certification readiness",
+    ],
+    professionalBenefits:
+      "Become a confident IMS practitioner who can reduce documentation duplication, improve cross-functional process control, and accelerate your organization's path to multi-standard ISO certification.",
+    courseStructure: [
+      "IMS fundamentals & Annex SL alignment",
+      "Process & risk mapping across three standards",
+      "Integrated documentation & control design",
+      "Internal audit planning & execution",
+      "Certification readiness roadmap",
+    ],
     keyOutcomes: [
       "Build a unified IMS architecture across three standards",
       "Map processes, risks, and controls to Annex SL structure",
@@ -261,6 +389,24 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "Online / In-Person",
     description:
       "Prepare facilities for SMETA 2-pillar and 4-pillar audit expectations. Covers documentation quality, policy frameworks, worker interview preparedness, and corrective action plan closure aligned with ETI Base Code standards.",
+    whatsIncluded: [
+      "SMETA 2-pillar & 4-pillar requirements",
+      "ETI Base Code compliance",
+      "Documentation quality",
+      "Policy framework review",
+      "Worker interview preparation",
+      "Corrective action plan management",
+      "Audit evidence packaging",
+    ],
+    professionalBenefits:
+      "Step into ethical trade audits with confidence — reduce repeat findings, lift your facility's compliance maturity, and become the trusted internal point of contact for SEDEX members and brand sourcing teams.",
+    courseStructure: [
+      "SEDEX & SMETA framework overview",
+      "Pillar-by-pillar requirements deep dive",
+      "Documentation review & evidence preparation",
+      "Worker & management interview readiness drills",
+      "CAP closure planning & follow-up systems",
+    ],
     keyOutcomes: [
       "Achieve higher audit preparedness and reduced findings",
       "Build robust documentation for all four SMETA pillars",
@@ -289,6 +435,24 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "Online / In-Person",
     description:
       "Operationalize amfori BSCI Code of Conduct requirements through management system design, worker rights implementation, monitoring controls, and continuous improvement planning.",
+    whatsIncluded: [
+      "BSCI Code of Conduct",
+      "BSCI performance areas",
+      "Worker rights implementation",
+      "Management system design",
+      "Monitoring & evidence capture",
+      "Corrective action workflows",
+      "Continuous improvement planning",
+    ],
+    professionalBenefits:
+      "Build the implementation expertise that helps factories move from audit findings to sustained social compliance performance — strengthening your value to suppliers, brand CSR teams, and amfori stakeholders.",
+    courseStructure: [
+      "BSCI framework & Code of Conduct overview",
+      "Gap assessment against performance areas",
+      "Implementation workshops per performance area",
+      "Evidence-based corrective action design",
+      "Remediation, monitoring & continuous improvement planning",
+    ],
     keyOutcomes: [
       "Implement BSCI performance areas systematically",
       "Build evidence-based corrective action workflows",
@@ -317,6 +481,25 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "Online / In-Person",
     description:
       "Module-by-module implementation support for Higg FEM 4.0 covering EMS, Energy/GHG, Water, Wastewater, Air Emissions, Waste, and Chemical Management. Focuses on data quality, level progression, and scoring optimization.",
+    whatsIncluded: [
+      "Environmental Management Systems",
+      "Energy & GHG module",
+      "Water module",
+      "Wastewater module",
+      "Air emissions module",
+      "Waste module",
+      "Chemical management module",
+      "FEM data quality & scoring",
+    ],
+    professionalBenefits:
+      "Become the in-house Higg FEM expert your facility relies on — improving FEM scores, reducing verification corrections, and turning environmental data into a credible improvement roadmap visible to brands on Worldly.",
+    courseStructure: [
+      "Higg FEM 4.0 framework overview",
+      "Module-by-module requirements deep dive",
+      "Data collection & evidence workshops",
+      "Documentation review & gap analysis",
+      "Scoring improvement & level progression roadmap",
+    ],
     keyOutcomes: [
       "Complete higher-quality FEM responses across all modules",
       "Progress through Level 1 to Level 3 requirements",
@@ -345,6 +528,25 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "Online / In-Person",
     description:
       "Prepare textile and leather production facilities for OEKO-TEX STeP certification across all six assessment modules: Chemical Management, Environmental Performance, Environmental Management, Social Responsibility, Quality Management, and Health & Safety.",
+    whatsIncluded: [
+      "Chemical management",
+      "Environmental performance",
+      "Environmental management",
+      "Social responsibility",
+      "Quality management",
+      "Health & safety",
+      "STeP documentation packs",
+      "Audit verification readiness",
+    ],
+    professionalBenefits:
+      "Lead your facility through STeP by OEKO-TEX certification with confidence — opening the pathway to MADE IN GREEN eligibility and elevating your reputation as a trusted certification specialist.",
+    courseStructure: [
+      "STeP framework & certification process overview",
+      "Six-module gap assessment",
+      "Documentation planning per module",
+      "Module-specific corrective action roadmap",
+      "Audit verification readiness workshop",
+    ],
     keyOutcomes: [
       "Complete gap assessment against STeP criteria",
       "Build prioritized corrective action plans per module",
@@ -373,6 +575,24 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "Online / In-Person",
     description:
       "Build practical decarbonization roadmaps from GHG inventory baselines to structured reduction initiatives aligned with science-based pathways. Covers Scope 1, 2, and 3 abatement strategies, marginal cost analysis, and implementation governance.",
+    whatsIncluded: [
+      "GHG baseline review",
+      "Scope 1, 2 & 3 reduction strategies",
+      "Abatement opportunity identification",
+      "Marginal abatement cost prioritization",
+      "Implementation governance",
+      "SBTi-aligned reduction targets",
+      "Investment-grade business cases",
+    ],
+    professionalBenefits:
+      "Build credible, science-aligned decarbonization plans your leadership and investors can defend — positioning you as a strategic climate lead capable of moving from inventory to validated SBTi commitment.",
+    courseStructure: [
+      "GHG baseline review & data quality check",
+      "Scope-by-scope reduction opportunity mapping",
+      "Marginal abatement cost prioritization workshop",
+      "Reduction roadmap design & target alignment",
+      "Implementation governance & accountability planning",
+    ],
     keyOutcomes: [
       "Develop structured reduction portfolios per emission scope",
       "Apply marginal abatement cost prioritization",
@@ -401,6 +621,24 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "Online / In-Person",
     description:
       "Focused training on SBTi target boundary definition, scope treatment, method selection, and submission-ready target formulation for corporate teams pursuing validated science-based targets.",
+    whatsIncluded: [
+      "SBTi target boundaries",
+      "Scope 1, 2 & 3 treatment",
+      "Method selection",
+      "Near-term target formulation",
+      "Net-zero principles",
+      "Submission documentation",
+      "Validation readiness",
+    ],
+    professionalBenefits:
+      "Gain practical confidence to drive your organization's SBTi journey from commitment letter to validated target — reducing rejection risk and positioning yourself as a credible climate disclosure practitioner.",
+    courseStructure: [
+      "SBTi fundamentals & criteria overview",
+      "Boundary setting & organizational alignment",
+      "Scope treatment & method selection",
+      "Target calculation & near-term/net-zero design",
+      "Documentation & validation submission readiness",
+    ],
     keyOutcomes: [
       "Define organizational and operational target boundaries",
       "Apply correct scope 1, 2, and 3 treatment to targets",
@@ -429,6 +667,24 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "In-Person",
     description:
       "Methodical training on conducting detailed engineering assessments for industrial and commercial structures. Covers structural evaluation protocols, risk classification, remediation planning, and professional report preparation.",
+    whatsIncluded: [
+      "Structural assessment methodology",
+      "Risk classification protocols",
+      "Defect identification",
+      "Remediation planning",
+      "Technical documentation",
+      "Evidence collection",
+      "Professional report preparation",
+    ],
+    professionalBenefits:
+      "Strengthen your engineering practice with structured, defensible assessment skills that improve safety decisions, technical due diligence, and the quality of compliance reporting you deliver to clients and regulators.",
+    courseStructure: [
+      "Assessment principles & evaluation protocols",
+      "Structural risk inspection & classification",
+      "Evidence collection & defect documentation",
+      "Remediation planning & prioritization",
+      "Professional report preparation workshop",
+    ],
     keyOutcomes: [
       "Apply systematic structural assessment methodologies",
       "Classify structural risks and prioritize interventions",
@@ -457,6 +713,24 @@ export const additionalTrainingCourses: TrainingCourse[] = [
     format: "Online / In-Person",
     description:
       "Lean transformation fundamentals designed for manufacturing environments. Covers value stream mapping, waste elimination, flow optimization, visual management, and establishing sustainable continuous improvement routines.",
+    whatsIncluded: [
+      "Lean fundamentals",
+      "Value stream mapping",
+      "Waste elimination (Muda)",
+      "Flow optimization",
+      "Visual management",
+      "Standard work",
+      "Daily improvement routines",
+    ],
+    professionalBenefits:
+      "Become the operational excellence champion who can lift productivity, reduce process waste, and embed continuous improvement habits across factory teams — a high-impact capability for any production or industrial engineering career.",
+    courseStructure: [
+      "Lean principles & manufacturing context",
+      "Current-state value stream mapping",
+      "Waste analysis & root-cause workshops",
+      "Future-state design & flow optimization",
+      "Visual management & daily routine deployment",
+    ],
     keyOutcomes: [
       "Map and analyze value streams to identify waste",
       "Apply lean tools for flow optimization and pull systems",

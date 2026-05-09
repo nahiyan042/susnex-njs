@@ -44,6 +44,39 @@ const data: ServicePageData = {
     { title: "Measurable Results", description: "Clear KPIs and metrics to track your material sustainability progress over time." },
     { title: "Proven Track Record", description: "Successful engagements with leading brands and manufacturers worldwide." },
   ],
+  roadmap: {
+    heading: "The Program",
+    subheading:
+      "How a sustainable-materials and circularity engagement unfolds — from understanding your context to communicating the change.",
+    /*
+     * 10-node "materials" layout. Same S-curve as ESG, but with only
+     * 2 nodes in the middle row and 3 in the bottom row, and BOTH
+     * loop apexes occupied (Circular Materials on the right,
+     * Training on the left). See ProgramRoadmap.tsx → MATERIALS_POSITIONS
+     * for the index → node mapping.
+     */
+    layout: "materials",
+    steps: [
+      { title: "Kick of Meeting",     subtitle: "Understanding the context",            icon: "play" },
+      { title: "Global Trends",       subtitle: "Tailored to your business strategy",   icon: "globe" },
+      { title: "Technicalities",      subtitle: "Detailed material breakdown",          icon: "wrench" },
+      { title: "Circular Materials",  subtitle: "How & where to find?",                 icon: "recycle" },
+      { title: "Traceability",        subtitle: "Options & Implementation",             icon: "link" },
+      { title: "Aligning Suppliers",  subtitle: "with your Desires and Expectations",   icon: "users" },
+      { title: "Training",            subtitle: "Capacity Development",                 icon: "training" },
+      { title: "Setting Goals",       subtitle: "Clear Targets & Objectives",           icon: "target" },
+      { title: "Collaboration",       subtitle: "Suppliers & Stakeholders",             icon: "chat" },
+      { title: "Branding",            subtitle: "Communication",                        icon: "handshake" },
+    ],
+  },
+  clientLogosHeading: "Our Clients",
+  clientLogosSubheading:
+    "Development partners and foundations we have collaborated with on sustainable materials, circularity, and supplier capacity-building programs.",
+  clientLogos: [
+    { src: "/images/clients/SusNex Clients Logo_GIZ.png",                name: "GIZ" },
+    { src: "/images/clients/SusNex Clients Logo_Oxfam.png",              name: "Oxfam" },
+    { src: "/images/clients/SusNex Clients Logo_Sajida Foundation.png",  name: "Sajida Foundation" },
+  ],
 };
 
 export default function MaterialSmart() {

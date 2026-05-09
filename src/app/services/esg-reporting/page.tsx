@@ -68,6 +68,25 @@ const data: ServicePageData = {
     { src: "/images/standards/oecd.svg", name: "OECD Guidelines", url: "https://www.oecd.org/en.html" },
     { src: "/images/standards/cdp.jpg", name: "CDP", url: "https://www.cdp.net/en" },
   ],
+  roadmap: {
+    heading: "Program Roadmap",
+    subheading:
+      "From kickoff to publication, every reporting engagement follows a structured 12-step journey designed to maximize impact and align with international standards.",
+    steps: [
+      { title: "Kickoff Meeting",               subtitle: "Contract & NDA Signing",              icon: "play" },
+      { title: "Understanding the ESG Context", subtitle: "Understanding the Organization",      icon: "search" },
+      { title: "On-site Visit",                 subtitle: "Mapping the Processes and Scope",     icon: "factory" },
+      { title: "Awareness Development",         subtitle: "Data Collection & Management",        icon: "megaphone" },
+      { title: "Stakeholder Mapping",           subtitle: "Knowing the Needs & Expectations",    icon: "users" },
+      { title: "Materiality Assessment",        subtitle: "Setting the Priorities",              icon: "chart" },
+      { title: "Data Collection",               subtitle: "Analysis & Baseline Setting",         icon: "clipboard" },
+      { title: "ESG Goals & Targets",           subtitle: "Setting objectives to address impacts", icon: "target" },
+      { title: "Developing Storyline",          subtitle: "Reporting Chapters",                  icon: "pencil" },
+      { title: "Review",                        subtitle: "Finalizing Report",                   icon: "eye" },
+      { title: "Design",                        subtitle: "Creative Visualization",              icon: "palette" },
+      { title: "Publication",                   subtitle: "Branding",                            icon: "handshake" },
+    ],
+  },
   whyChooseUs: [
     { title: "Multidisciplinary Team", description: "Our team combines expertise in environmental science, engineering, finance, and social governance." },
     { title: "GRI Certified Training Partner", description: "As a GRI CTP, we bring authoritative knowledge of the world's most widely used reporting standards." },
@@ -75,6 +94,35 @@ const data: ServicePageData = {
     { title: "Proven Track Record", description: "50+ successful sustainability reports delivered for leading organizations." },
     { title: "Collaborative Partnership", description: "We work alongside your team, building internal capacity for long-term reporting success." },
     { title: "Integrated Reporting with SDG", description: "Align your disclosures with UN SDGs and multiple international frameworks simultaneously." },
+  ],
+  clientLogosHeading: "Our Clients",
+  clientLogosSubheading:
+    "Manufacturers, conglomerates, and industry bodies who have trusted SusNex to lead their sustainability and ESG reporting work.",
+  /*
+   * Logos sourced from each client's own website (or their About page bundle).
+   * Filenames mirror the existing About page convention so adding the next
+   * client is just dropping a new PNG/SVG into public/images/clients/.
+   *
+   * Order matches the user-supplied client list verbatim.
+   */
+  clientLogos: [
+    { src: "/images/clients/SusNex Clients Logo_Team Group.png",                                            name: "Team Group" },
+    { src: "/images/clients/SusNex Clients Logo_Urmi Group.png",                                            name: "Urmi Group" },
+    { src: "/images/clients/SusNex Clients Logo_Posh Garments.png",                                         name: "Posh Garments" },
+    { src: "/images/clients/SusNex Clients Logo_Bashundhara Paper Mills Ltd.png",                           name: "Bashundhara Paper Mills" },
+    { src: "/images/clients/SusNex Clients Logo_Bashundhara Ready Mix & Construction Industries Ltd.png",  name: "Bashundhara Construction" },
+    { src: "/images/clients/SusNex Clients Logo_Sajida Foundation.png",                                     name: "SAJIDA Foundation" },
+    { src: "/images/clients/SusNex Clients Logo_Centro Tex Ltd.png",                                        name: "Centro Tex" },
+    { src: "/images/clients/SusNex Clients Logo_Shin Shin Group.png",                                       name: "Shin Shin Group" },
+    { src: "/images/clients/SusNex Clients Logo_BGMEA.png",                                                 name: "BGMEA",            prominent: true },
+    { src: "/images/clients/SusNex Clients Logo_EMS Apparels.png",                                          name: "EMS Apparels" },
+    { src: "/images/clients/SusNex Clients Logo_Multifabs.png",                                             name: "Multifabs Ltd." },
+    { src: "/images/clients/SusNex Clients Logo_Laila Group.png",                                           name: "Laila" },
+    { src: "/images/clients/SusNex Clients Logo_Bando.png",                                                 name: "Bando Design Ltd." },
+    { src: "/images/clients/SusNex Clients Logo_Fakir Fashion.png",                                         name: "Fakir Fashion Ltd." },
+    { src: "/images/clients/SusNex Clients Logo_Akij Ispat.svg",                                            name: "Akij Ispat" },
+    { src: "/images/clients/SusNex Clients Logo_Akij Cement.svg",                                           name: "Akij Cement" },
+    { src: "/images/clients/SusNex Clients Logo_MBM Group.png",                                             name: "MBM Group" },
   ],
 };
 

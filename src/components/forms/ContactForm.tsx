@@ -7,7 +7,7 @@ import { contactSchema } from "@/lib/schemas";
 import { cn } from "@/lib/utils";
 
 const inputClass =
-  "w-full rounded-xl border border-border bg-bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--color-green)]";
+  "neo-input w-full rounded-xl border border-border bg-bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--color-green)]";
 const errorClass = "mt-1 text-xs text-red-500";
 
 interface ContactFormValues {
@@ -62,7 +62,7 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div
-        className="rounded-2xl border border-[var(--color-green)]/30 bg-[var(--color-green)]/5 p-8 text-center"
+        className="neo-surface rounded-2xl border border-[var(--color-green)]/30 bg-[var(--color-green)]/5 p-8 text-center"
         role="status"
         aria-live="polite"
       >
@@ -197,7 +197,7 @@ export function ContactForm() {
         type="submit"
         disabled={status === "loading"}
         aria-busy={status === "loading"}
-        className="inline-flex items-center justify-center rounded-full bg-[var(--color-green)] px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-green-dark)] disabled:opacity-50"
+        className="neo-button-primary inline-flex items-center justify-center rounded-full bg-[var(--color-green)] px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-green-dark)] disabled:opacity-50"
       >
         {status === "loading" ? "Sending…" : "Send Message"}
       </button>

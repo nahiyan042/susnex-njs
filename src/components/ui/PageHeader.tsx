@@ -1,3 +1,5 @@
+import { SectionBackground } from "@/components/ui/SectionBackground";
+
 interface PageHeaderProps {
   title: string;
   description?: string;
@@ -5,7 +7,8 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, description }: PageHeaderProps) {
   return (
-    <section className="relative overflow-hidden border-b border-border bg-bg-secondary px-6 pt-32 pb-16 lg:pt-40 lg:pb-20">
+    <section className="neo-surface relative overflow-hidden border-b border-border bg-bg-secondary px-6 pt-32 pb-16 lg:pt-40 lg:pb-20">
+      <SectionBackground opacity={0.18} variant="hex-bloom" />
       {/* Decorative gradient orbs */}
       <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[var(--color-green)]/5 blur-3xl" />
       <div className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-[var(--color-green)]/5 blur-3xl" />

@@ -45,6 +45,11 @@ export const blogPosts: BlogPost[] = [
 
       <p>A panel discussion moderated by <strong>Towfique Hasan</strong>, Director of Business Development at SusNex, explored the practical challenges and opportunities of sustainability reporting in Bangladesh. The distinguished panelists included:</p>
 
+      <figure class="blog-figure">
+        <img src="/images/blog/workshop-1-panel.jpg" alt="Panel discussion on sustainability reporting at the Swisscontact–SusNex workshop in Dhaka." loading="lazy" />
+        <figcaption>Industry leaders share perspectives during the panel discussion on sustainability reporting in Bangladesh.</figcaption>
+      </figure>
+
       <ul>
         <li><strong>Dr. Mohammad Nazmi Newaz</strong> — Bangladesh Institute of Management (BIM)</li>
         <li><strong>Masud Ali Choudhury</strong> — UNDP WING</li>
@@ -55,6 +60,11 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <p>Panelists shared perspectives on the evolving regulatory landscape, the role of financial institutions in driving ESG adoption, and the practical steps factories can take to begin their sustainability reporting journey.</p>
+
+      <figure class="blog-figure">
+        <img src="/images/blog/workshop-1-audience.jpg" alt="Workshop audience of consultants, factory representatives, and brand sourcing teams listening to the panel." loading="lazy" />
+        <figcaption>Participants from consulting firms, RMG factories, banks, buying houses, and global apparel brands attended the day-long workshop.</figcaption>
+      </figure>
 
       <h3>Interactive Q&A</h3>
 
@@ -82,6 +92,11 @@ export const blogPosts: BlogPost[] = [
       <h2>Strengthening Local Expertise for Sustainable Growth</h2>
 
       <p>SusNex Ltd has successfully completed an intensive capacity-building program that included <strong>GRI Certified courses</strong>, positioning the organization as a stronger local partner for sustainability transformation in Bangladesh's Ready-Made Garment (RMG) sector.</p>
+
+      <figure class="blog-figure">
+        <img src="/images/blog/workshop-2-training.jpg" alt="SusNex consultants during the GRI Certified capacity-building training under the Swisscontact PROGRESS project." loading="lazy" />
+        <figcaption>SusNex consultants completing the GRI Certified capacity-building program under the Swisscontact PROGRESS project.</figcaption>
+      </figure>
 
       <h3>The PROGRESS Project</h3>
 
@@ -125,9 +140,19 @@ export const blogPosts: BlogPost[] = [
 
       <p>SusNex Ltd has successfully completed an advanced capacity-building program including <strong>GRI Certified courses</strong>, further solidifying its position as a key local partner for factories seeking to meet international ESG standards and accelerate green growth in Bangladesh's Ready-Made Garment (RMG) sector.</p>
 
+      <figure class="blog-figure">
+        <img src="/images/blog/training-1-classroom.jpg" alt="SusNex consultants in a GRI Certified training session under the Swisscontact PROGRESS project." loading="lazy" />
+        <figcaption>The PROGRESS Local Technical Consultancy Provider (LTCP) cohort during one of the GRI-certified training modules.</figcaption>
+      </figure>
+
       <h3>The PROGRESS Project</h3>
 
       <p>The training was conducted under the <strong>PROGRESS project</strong>, a four-year initiative (2022–2026) led by <strong>Swisscontact</strong> and co-funded by <strong>Sweden</strong> and <strong>Switzerland</strong>. The project's mission is to develop a robust ecosystem of Local Technical Consultancy Providers (LTCPs) capable of delivering affordable, high-quality sustainability and productivity services to garment factories — particularly those in Tier-2 and Tier-3 supply chains that have historically lacked access to such expertise.</p>
+
+      <figure class="blog-figure">
+        <img src="/images/blog/training-1-team.jpg" alt="Trained SusNex sustainability consultants standing together after completing the PROGRESS capacity-building program." loading="lazy" />
+        <figcaption>Members of the SusNex team after completing the advanced sustainability and productivity training programme.</figcaption>
+      </figure>
 
       <h3>Building Local Capacity</h3>
 

@@ -4,9 +4,9 @@ import { ServicePageTemplate } from "@/components/services/ServicePageTemplate";
 import { speakForChangeData } from "@/lib/content/services";
 
 export const metadata = pageSeo({
-  title: "amfori Speak for Change Implementation",
+  title: "Worker Voice & Grievance Mechanism Implementation",
   description:
-    "Supply-chain grievance mechanism setup, guided remediation, and due-diligence reporting support for global supply chains.",
+    "Implement worker voice and grievance mechanisms aligned with amfori Speak for Change — case triage, guided remediation, supplier onboarding, and due-diligence reporting for responsible supply chains.",
   path: "/services/speak-for-change",
 });
 
@@ -18,16 +18,16 @@ export default function SpeakForChange() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             serviceJsonLd(
-              "amfori Speak for Change Implementation",
-              "Supply-chain grievance mechanism setup, guided remediation, and due-diligence reporting support for global supply chains.",
+              "Worker Voice & Grievance Mechanism Implementation",
+              "Implement worker voice and grievance mechanisms aligned with amfori Speak for Change — case triage, guided remediation, supplier onboarding, and due-diligence reporting for responsible supply chains.",
               "/services/speak-for-change",
             ),
           ),
         }}
       />
       <PageHeader
-        title="amfori Speak for Change Implementation"
-        description="Worker and stakeholder grievance mechanisms with guided remediation for responsible supply chains."
+        title="Worker Voice & Grievance Mechanism Implementation"
+        description="Trusted worker voice systems for responsible supply chains — designed, deployed, and governed in line with amfori Speak for Change and global human rights due-diligence expectations."
       />
       <ServicePageTemplate data={speakForChangeData} />
     </main>

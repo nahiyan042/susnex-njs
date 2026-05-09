@@ -1,0 +1,86 @@
+/* TiltedImageCard — React Bits inspired 3D tilt with parallax overlay
+   and cursor-tracking caption. Class names are unique-prefixed to
+   avoid collisions with other cards in the codebase. */
+
+.tilted-card-figure {
+  position: relative;
+  perspective: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.tilted-card-mobile-alert {
+  position: absolute;
+  top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.75rem;
+  display: none;
+  z-index: 5;
+  pointer-events: none;
+  color: var(--text-secondary);
+  background-color: color-mix(in srgb, var(--bg-card) 80%, transparent);
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 640px) {
+  .tilted-card-mobile-alert {
+    display: block;
+  }
+  .tilted-card-caption {
+    display: none;
+  }
+}
+
+.tilted-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.tilted-card-img {
+  object-fit: cover;
+  border-radius: 18px;
+  will-change: transform;
+}
+
+.tilted-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  will-change: transform;
+  transform: translateZ(40px);
+  pointer-events: none;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* Re-enable pointer events on overlay leaf elements (links, etc.) */
+.tilted-card-overlay [data-interactive] {
+  pointer-events: auto;
+}
+
+.tilted-card-caption {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 8px;
+  background-color: rgba(13, 31, 22, 0.92);
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #ffffff;
+  opacity: 0;
+  z-index: 30;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+  letter-spacing: 0.01em;
+}

@@ -1,14 +1,14 @@
 import type { ServicePageData } from "@/components/services/ServicePageTemplate";
 
 export const speakForChangeData: ServicePageData = {
-  title: "amfori Speak for Change Implementation",
-  subtitle: "From Grievances to Measurable Remediation",
+  title: "Worker Voice & Grievance Mechanism Implementation",
+  subtitle: "Trusted Worker Voice Systems for Responsible Supply Chains",
   heroImage: "/images/services/speak-for-change.webp",
-  formService: "Speak for Change Implementation",
+  formService: "Worker Voice & Grievance Mechanism Implementation",
   description: [
-    "SusNex helps suppliers and brands operationalize grievance mechanisms that are trusted by workers and accepted by global buyers. We align implementation with amfori Speak for Change methodology and broader due-diligence expectations.",
-    "We design and deploy practical intake channels, triage logic, and remediation workflows that convert grievance signals into structured, governed responses. Our approach integrates with existing factory-level complaint systems and scales across multi-site supply chains.",
-    "Beyond setup, our team supports ongoing case governance, closure quality assurance, and insight reporting so organizations can move from reactive handling to preventive social risk management. This strengthens compliance posture and builds long-term worker trust.",
+    "SusNex helps suppliers, factories, and brands implement effective worker voice and grievance mechanisms aligned with amfori Speak for Change. We design practical intake channels, supplier onboarding pathways, case triage logic, remediation workflows, and structured reporting so organizations can move from reactive complaint handling to transparent, outcome-driven grievance management.",
+    "Our approach focuses on building trusted worker voice systems that are easy to access, locally relevant, and aligned with global buyer expectations. We integrate grievance mechanisms with existing factory-level systems and scale them across multi-site supplier networks — strengthening access to remedy, improving social compliance performance, and generating reliable evidence for responsible sourcing.",
+    "From single-factory pilots to enterprise-wide rollouts, SusNex provides hands-on support across mechanism design, communication, supplier engagement, case governance, closure quality assurance, and insight reporting — giving suppliers, brands, and amfori members a defensible, audit-ready human rights due-diligence foundation.",
   ],
   experts: [
     {
@@ -22,77 +22,77 @@ export const speakForChangeData: ServicePageData = {
     {
       title: "Accessible Grievance Channels",
       description:
-        "Deploy multiple safe and localized channels — forms, chat apps, and phone lines — adapted to worker context.",
+        "Worker-friendly intake channels — forms, chat apps, hotlines, and on-site boxes — designed for local languages, literacy levels, and factory realities.",
     },
     {
-      title: "Faster Case Triage",
+      title: "Supplier Onboarding",
       description:
-        "Apply structured triage taxonomy to route cases efficiently and reduce time-to-resolution.",
+        "Clear implementation guidance for factories, management teams, HR, compliance staff, and worker representatives across multi-site supplier networks.",
+    },
+    {
+      title: "Structured Case Triage",
+      description:
+        "Categorized intake taxonomy and routing workflows that reduce response time, improve accountability, and strengthen documentation discipline.",
     },
     {
       title: "Guided Remediation",
       description:
-        "Step-by-step remediation workflows with supplier collaboration and amfori case-handler support.",
+        "Step-by-step remediation planning, follow-up, closure tracking, and evidence capture aligned with amfori case-handler expectations.",
     },
     {
-      title: "Improved Audit Readiness",
+      title: "Due-Diligence Reporting",
       description:
-        "Documented grievance records that strengthen due-diligence evidence during BSCI and SMETA audits.",
+        "Actionable grievance insights that feed responsible sourcing programs, BSCI evidence, CSDDD reporting, and human rights due-diligence frameworks.",
     },
     {
-      title: "Social Risk Insights",
+      title: "Worker Trust & Engagement",
       description:
-        "Analytics and reporting dashboards to identify patterns and drive preventive action.",
-    },
-    {
-      title: "Buyer Confidence",
-      description:
-        "Demonstrate access-to-remedy commitment that satisfies CSDDD, German Supply Chain Act, and buyer requirements.",
+        "A safer, more transparent system that encourages early issue reporting, preventive action, and measurable improvements in worker confidence.",
     },
   ],
   whyChooseUs: [
     {
       title: "amfori-Aligned Expertise",
       description:
-        "Deep understanding of Speak for Change methodology and integration with BSCI assessments.",
+        "Practical implementation experience aligned with amfori Speak for Change methodology and integrated with BSCI social compliance audits.",
     },
     {
-      title: "Local Context Knowledge",
+      title: "Bangladesh Supply-Chain Context",
       description:
-        "Bangladesh-based team with hands-on experience in factory-level grievance system deployment.",
+        "Local team with deep, hands-on experience deploying grievance systems inside RMG, textile, and multi-tier supplier factories.",
     },
     {
       title: "End-to-End Support",
       description:
-        "From mechanism design through supplier onboarding to case closure and reporting.",
+        "From mechanism design and worker communication through supplier onboarding, case governance, closure, and continuous improvement.",
     },
     {
-      title: "Due Diligence Integration",
+      title: "Due-Diligence Integration",
       description:
-        "Connects grievance outcomes with broader human rights due-diligence frameworks.",
+        "Connects grievance outcomes with CSDDD, German Supply Chain Act, SMETA, and broader human rights due-diligence requirements.",
     },
     {
-      title: "Scalable Approach",
+      title: "Scalable Across Supplier Networks",
       description:
-        "Proven methods that work for single-factory pilots and multi-country supply chains.",
+        "Proven methods that work for single-factory pilots and roll out cleanly across multi-country, multi-tier supply chains.",
     },
     {
-      title: "Measurable Impact",
+      title: "Measurable KPIs",
       description:
-        "Clear KPIs on case volume, resolution rates, and worker trust indicators.",
+        "Clear indicators for grievance access, response quality, remediation closure, and worker trust — defensible to buyers and regulators.",
     },
   ],
 };
 
 export const dppEsprData: ServicePageData = {
   title: "Digital Product Passport (DPP) & ESPR Readiness",
-  subtitle: "Build Data Systems for the Next Era of Textile Compliance",
+  subtitle: "Prepare Product Data Systems for the Future of EU Textile Compliance",
   heroImage: "/images/services/dpp-espr.webp",
-  formService: "DPP & ESPR Readiness",
+  formService: "Digital Product Passport (DPP) & ESPR Readiness",
   description: [
-    "The EU Ecodesign for Sustainable Products Regulation (ESPR) is set to require Digital Product Passports for textiles, linking each product to a digital record of its environmental sustainability, material composition, origin, and lifecycle data.",
-    "SusNex supports textile and apparel organizations in preparing for these requirements through practical, phased implementation — mapping current data maturity, designing required product-level data structures, and establishing supplier data-collection workflows.",
-    "Our approach turns compliance pressure into strategic value: improved traceability strengthens claims confidence, better data governance supports cross-functional decision-making, and early readiness creates competitive advantage as regulations take effect.",
+    "The EU Ecodesign for Sustainable Products Regulation (ESPR) is reshaping how textile and apparel products will be documented, verified, and communicated. Digital Product Passports will require reliable product-level data on material composition, origin, recycled content, durability, environmental impact, repairability, and lifecycle information — backed by traceable evidence and structured digital workflows.",
+    "SusNex helps textile manufacturers, apparel suppliers, brands, and sourcing teams prepare for Digital Product Passport requirements through a practical, phased readiness approach. We assess current data maturity, map product and supplier information flows, design DPP-ready data structures, and establish workflows for collecting, validating, and maintaining sustainability information across the supply chain.",
+    "Our DPP and ESPR readiness support turns compliance pressure into strategic value: improved traceability strengthens sustainability claims, better data governance supports cross-functional decision-making, and early readiness creates competitive advantage with EU buyers and regulators as the regulation takes effect.",
   ],
   experts: [
     {
@@ -116,66 +116,66 @@ export const dppEsprData: ServicePageData = {
   ],
   outcomes: [
     {
-      title: "DPP Data Model",
+      title: "DPP Readiness Assessment",
       description:
-        "A governance-ready data architecture covering product composition, origin, environmental impact, and lifecycle information.",
+        "Clear evaluation of current product data maturity, traceability gaps, and ESPR alignment with prioritized next steps.",
     },
     {
-      title: "Material Traceability",
+      title: "Product Data Architecture",
       description:
-        "Mapped material origins with associated carbon footprint data across the supply chain.",
+        "Governance-ready data model covering material composition, origin, certification, environmental impact, and lifecycle attributes.",
     },
     {
       title: "Supplier Data Workflows",
       description:
-        "Standardized data-capture templates and quality-control processes for supplier networks.",
+        "Standardized data-collection templates, validation rules, and quality-control processes for multi-tier supplier networks.",
     },
     {
-      title: "Pilot Passport Rollout",
+      title: "Traceability Roadmap",
       description:
-        "A tested rollout playbook for priority product lines ready for QR code or data carrier integration.",
+        "Practical plan for connecting product, material, factory, and sustainability data across the textile value chain.",
     },
     {
-      title: "Regulatory Readiness",
+      title: "Pilot Product Passport",
       description:
-        "Alignment with ESPR disclosure requirements including recycled content, durability, and repair information.",
+        "Tested DPP rollout framework for priority product lines, including QR code and data-carrier readiness.",
     },
     {
-      title: "Competitive Advantage",
+      title: "EU Market Preparedness",
       description:
-        "Early-mover positioning with buyers and regulators through demonstrated DPP capability.",
+        "Stronger position for upcoming ESPR, circular economy, and buyer disclosure requirements with credible evidence.",
     },
   ],
   whyChooseUs: [
     {
-      title: "Circular Economy Expertise",
+      title: "Textile Sustainability Depth",
       description:
-        "Deep knowledge of material flows, lifecycle thinking, and product-level data requirements.",
+        "Hands-on expertise across textile sustainability, circularity, ESG, and product-level data requirements.",
     },
     {
-      title: "Supply Chain Reach",
+      title: "Bangladesh Manufacturing Reach",
       description:
-        "Direct access to Bangladesh's textile manufacturing base for pilot data collection.",
+        "Direct access to RMG, textile, and apparel manufacturing partners for pilot data collection and supplier engagement.",
     },
     {
       title: "Standards Integration",
       description:
-        "Connect DPP requirements with GRS, GOTS, and other existing certifications.",
+        "Connect DPP and ESPR data to GRS, GOTS, OEKO-TEX, RCS, and other certifications you already maintain.",
     },
     {
       title: "Phased Implementation",
       description:
-        "Start with readiness assessment, build to pilot, and scale with confidence.",
+        "Start with a readiness assessment, build to a pilot, and scale with confidence — without disrupting existing operations.",
     },
     {
       title: "Cross-Functional Approach",
       description:
-        "Engage product development, sourcing, compliance, and IT teams in a unified workflow.",
+        "Aligned workflows across product development, sourcing, compliance, sustainability, and IT teams.",
     },
     {
       title: "Future-Proof Design",
       description:
-        "Blockchain-compatible data architecture ready for evolving regulatory technology expectations.",
+        "Open data architecture compatible with evolving DPP carriers, blockchain anchoring, and regulatory technology expectations.",
     },
   ],
 };

@@ -51,6 +51,15 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     minimumCacheTTL: 60 * 60 * 24 * 30,
+    // Allow next/image to optimise SVG assets we ship in /public (e.g.
+    // vendor-supplied vector logos like Akij Ispat / Akij Cement).
+    // contentDispositionType: "attachment" + the strict CSP below keep
+    // this safe — any inline scripts in an SVG cannot execute, and any
+    // SVG opened directly will be downloaded rather than rendered.
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy:
+      "default-src 'self'; script-src 'none'; sandbox; style-src 'unsafe-inline';",
   },
 
   async headers() {

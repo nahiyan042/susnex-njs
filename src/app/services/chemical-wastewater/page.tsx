@@ -52,6 +52,51 @@ const data: ServicePageData = {
     { title: "Global Apparel Retailer Projects", description: "Ongoing engagements with leading international apparel retailers and brands." },
     { title: "Tailored & Cost-Effective Solutions", description: "Custom approaches that deliver maximum impact within your budget constraints." },
   ],
+  roadmap: {
+    heading: "Program Roadmap",
+    subheading:
+      "From kickoff to validation, every chemical & wastewater engagement follows a structured 11-step journey — combining ZDHC-aligned CMS upgrades, third-party WW sampling, WWTP assessment, and accredited operator training.",
+    /*
+     * Reuses the same 11-node "energy" S-curve layout (3 top + 1
+     * right-loop apex + 3 middle row + 4 bottom row, no left-loop
+     * apex node). Week labels match the source diagram (W 1 → W 50)
+     * and are rendered as small italic green captions above each
+     * node by ProgramRoadmap (see `week` field).
+     */
+    layout: "energy",
+    steps: [
+      { week: "W 1",    title: "Kickoff Meeting",             subtitle: "NDA and Contract Signing",                                                            icon: "play" },
+      { week: "W 2",    title: "Initial Data Collection",     subtitle: "Desktop Review",                                                                       icon: "document" },
+      { week: "W 4",    title: "Factory Visit",               subtitle: "Wastewater & Chemical Management System (CMS) Data Collection and Setting Baseline",   icon: "factory" },
+      { week: "W 6",    title: "Third-Party WW Sampling",     subtitle: "Composite Sampling for Testing",                                                       icon: "droplet" },
+      { week: "W 7-10", title: "Baseline Report",             subtitle: "Recommendations for Improvement on CMS and WWTP",                                      icon: "clipboard" },
+      { week: "W 14",   title: "WWTP Assessment Report",      subtitle: "Detailed WWTP Improvement and Zero Liquid Discharge (ZLD) Action Plan",                icon: "chart" },
+      { week: "W 28",   title: "Implementation Visit",        subtitle: "Detailed Understanding of WWTP Condition & CMS Improvement",                            icon: "wrench" },
+      { week: "W 30",   title: "Training on WWTP Operations", subtitle: "Relevant factory personnel get ZDHC-accredited training on WWTP operations",            icon: "training" },
+      { week: "W 32",   title: "Training on CMS",             subtitle: "Relevant factory personnel get ZDHC-accredited training on CMS",                       icon: "training" },
+      { week: "W 48",   title: "Validation Visit",            subtitle: "Validate the Improvement on WWTP and CMS",                                              icon: "check-badge" },
+      { week: "W 50",   title: "Final Improvement Report",    subtitle: "Measured Achievement",                                                                  icon: "handshake" },
+    ],
+  },
+  clientLogosHeading: "Our Clients",
+  clientLogosSubheading:
+    "Global brands, manufacturers, and institutions we have supported with chemical management systems, wastewater treatment optimisation, and ZDHC-compliant programmes.",
+  /*
+   * Order matches the user-supplied list (with H&M opening as the
+   * marquee global brand). H&M is shipped as SVG and streams through
+   * next/image transparently thanks to the dangerouslyAllowSVG flag
+   * added in next.config.ts.
+   */
+  clientLogos: [
+    { src: "/images/clients/SusNex Clients Logo_H&M.svg",                          name: "H&M",                                       prominent: true },
+    { src: "/images/clients/SusNex Clients Logo_Igloo.png",                        name: "Igloo" },
+    { src: "/images/clients/SusNex Clients Logo_BGMEA.png",                        name: "BGMEA",                                     prominent: true },
+    { src: "/images/clients/SusNex Clients Logo_Cityscape International.png",      name: "Cityscape International" },
+    { src: "/images/clients/SusNex Clients Logo_IUB.png",                          name: "Independent University Bangladesh (IUB)" },
+    { src: "/images/clients/SusNex Clients Logo_Square Group.png",                 name: "Square Group" },
+    { src: "/images/clients/SusNex Clients Logo_Healthcare Pharmaceutical.png",    name: "Healthcare Pharmaceutical Ltd." },
+    { src: "/images/clients/SusNex Clients Logo_Berger Paints.jpg",                name: "Berger Paints" },
+  ],
 };
 
 export default function ChemicalWastewater() {

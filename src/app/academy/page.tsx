@@ -207,9 +207,18 @@ export default function AcademyPage() {
           <h2 className="text-center font-heading text-2xl font-bold tracking-tight sm:text-3xl">
             Specialized Training Programs
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-text-secondary">
-            Expert-led programs covering compliance, environmental management,
-            climate action, social performance, and operational excellence.
+          <p className="mx-auto mt-4 max-w-3xl text-center leading-relaxed text-text-secondary">
+            Advance your team&apos;s sustainability performance with
+            specialized training programs designed for factories, brands,
+            suppliers, and corporate professionals. SusNex delivers practical,
+            expert-led training in ESG reporting, environmental compliance,
+            climate action, energy management, chemical safety, social
+            responsibility, and operational excellence.
+          </p>
+          <p className="mx-auto mt-3 max-w-3xl text-center leading-relaxed text-text-secondary">
+            Our programs combine global standards with real factory and
+            supply-chain experience — turning complex sustainability
+            requirements into clear, actionable workplace practice.
           </p>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -219,9 +228,16 @@ export default function AcademyPage() {
                 className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-card transition-all hover:border-[var(--color-green)]/30 hover:shadow-lg"
               >
                 <div className="relative aspect-[16/9] overflow-hidden bg-bg-secondary">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <Image
+                    src={course.coverImage}
+                    alt={course.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
                   {course.badge && (
-                    <span className="absolute left-3 top-3 z-10 inline-flex rounded-full bg-[var(--color-green)] px-2.5 py-0.5 text-xs font-semibold text-white">
+                    <span className="absolute left-3 top-3 z-10 inline-flex rounded-full bg-[var(--color-green)] px-2.5 py-0.5 text-xs font-semibold text-white shadow-md shadow-black/20">
                       {course.badge}
                     </span>
                   )}

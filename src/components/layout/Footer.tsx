@@ -78,7 +78,7 @@ function FooterLinkColumn({
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-bg-secondary">
+    <footer className="neo-surface border-t border-border bg-bg-secondary">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand Column */}
@@ -102,7 +102,7 @@ export function Footer() {
                 href="https://linkedin.com/company/susnex"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-[var(--color-green)] hover:text-[var(--color-green)]"
+                className="neo-icon-btn flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-[var(--color-green)] hover:text-[var(--color-green)]"
                 aria-label="LinkedIn"
               >
                 <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -113,7 +113,7 @@ export function Footer() {
                 href="https://www.facebook.com/susnex.bd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-[var(--color-green)] hover:text-[var(--color-green)]"
+                className="neo-icon-btn flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-[var(--color-green)] hover:text-[var(--color-green)]"
                 aria-label="Facebook"
               >
                 <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -122,7 +122,7 @@ export function Footer() {
               </a>
               <a
                 href="mailto:ask@susnex.com"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-[var(--color-green)] hover:text-[var(--color-green)]"
+                className="neo-icon-btn flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-[var(--color-green)] hover:text-[var(--color-green)]"
                 aria-label="Email"
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -131,7 +131,7 @@ export function Footer() {
               </a>
               <a
                 href="tel:+8801713478512"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-[var(--color-green)] hover:text-[var(--color-green)]"
+                className="neo-icon-btn flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-[var(--color-green)] hover:text-[var(--color-green)]"
                 aria-label="Call"
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">

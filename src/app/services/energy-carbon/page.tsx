@@ -51,6 +51,80 @@ const data: ServicePageData = {
     { title: "Global Apparel Retailer Projects", description: "Ongoing projects with major international apparel retailers and brands." },
     { title: "Tailored Solutions", description: "Customized energy management strategies that fit your operational context and budget." },
   ],
+  roadmap: {
+    heading: "Program Roadmap",
+    subheading:
+      "From kickoff through validation, every energy & carbon engagement follows a structured 11-step journey aligned with ASHRAE Level-2, SBTi, and the GHG Protocol.",
+    /*
+     * The 11-node "energy" layout reuses the same S-curve as ESG but
+     * skips the left-loop apex node and gains a 4th bottom-row node.
+     * Steps mirror the source roadmap diagram (W 1 → W 50). Week
+     * labels are rendered as small italic green captions ABOVE each
+     * node circle (handled by ProgramRoadmap, see `week` field).
+     */
+    layout: "energy",
+    steps: [
+      { week: "W 1",     title: "Kickoff Meeting",                          subtitle: "NDA and Contract Signing",                          icon: "play" },
+      { week: "W 2",     title: "Initial Data Collection",                  subtitle: "Desktop Review",                                    icon: "document" },
+      { week: "W 4",     title: "Factory Visit",                            subtitle: "Energy Data Measurement",                           icon: "factory" },
+      { week: "W 6",     title: "Training of Factory Personnel",            subtitle: "SBTi and Energy Management",                        icon: "training" },
+      { week: "W 7-12",  title: "Data Collection & Compilation",            subtitle: "Preparing Baseline & Performance Analysis",          icon: "chart" },
+      { week: "W 18",    title: "ASHRAE Level-2 Energy Audit Report with GHG Emissions", subtitle: "Energy Performance Improvement Recommendations", icon: "clipboard" },
+      { week: "W 24",    title: "Factory Consultation for Target Setting",  subtitle: "Detailed Action Plan",                              icon: "target" },
+      { week: "W 25-38", title: "Assistance During Implementation",         subtitle: "Preparing Specifications & Vendor Selection",       icon: "wrench" },
+      { week: "W 26-35", title: "Interim Monitoring",                       subtitle: "Ensuring Technically Sound Implementation",          icon: "eye" },
+      { week: "W 48",    title: "Validation Visit",                         subtitle: "Validate the Improvement",                          icon: "check-badge" },
+      { week: "W 50",    title: "Final Improvement Report",                 subtitle: "Measured Achievement",                              icon: "handshake" },
+    ],
+  },
+  clientLogosHeading: "Our Clients",
+  clientLogosSubheading:
+    "Manufacturers, conglomerates, financial institutions, and global brands we have supported with energy audits, GHG inventories, and carbon-reduction roadmaps.",
+  /*
+   * Order follows the user-supplied list verbatim. Filename references
+   * mirror the existing /public/images/clients/ folder convention so the
+   * About page wall and any other service page stay file-compatible.
+   *
+   * "Beximco" -> Beximco Pharma Ltd (the only Beximco-branded asset we
+   * currently have on file). If a different Beximco entity is intended,
+   * drop the new logo into clients/ and swap the src below.
+   */
+  clientLogos: [
+    { src: "/images/clients/SusNex Clients Logo_Apex.png",                                  name: "Apex" },
+    { src: "/images/clients/SusNex Clients Logo_Auchan Retail.png",                         name: "Auchan Retail" },
+    { src: "/images/clients/SusNex Clients Logo_Avery Dennison.png",                        name: "Avery Dennison" },
+    { src: "/images/clients/SusNex Clients Logo_Beximco Pharma Ltd.png",                    name: "Beximco Pharma" },
+    { src: "/images/clients/SusNex Clients Logo_British American Tobacco Ltd.png",          name: "British American Tobacco" },
+    { src: "/images/clients/SusNex Clients Logo_CocaCola.png",                              name: "Coca-Cola" },
+    /*
+     * The "Columbia Washing Plant Ltd" file is actually a composite of the
+     * Columbia mark + the parent M&J Group wordmark ("PASSION MAKES
+     * INNOVATION"). Per stakeholder direction, that composite is the
+     * canonical M&J asset on file — we point M&J Group references at it
+     * everywhere instead of the standalone M&J SVG.
+     */
+    { src: "/images/clients/SusNex Clients Logo_Columbia Washing Plant Ltd.png",            name: "M&J Group" },
+    { src: "/images/clients/SusNex Clients Logo_Gildan.png",                                name: "Gildan" },
+    { src: "/images/clients/SusNex Clients Logo_Hidramani Group.png",                       name: "Hidramani Group" },
+    { src: "/images/clients/SusNex Clients Logo_HSBC Bank PLC.png",                         name: "HSBC" },
+    { src: "/images/clients/SusNex Clients Logo_Ispahani.png",                              name: "Ispahani" },
+    { src: "/images/clients/SusNex Clients Logo_Kontoor.png",                               name: "Kontoor" },
+    { src: "/images/clients/SusNex Clients Logo_Kumudini Cares.png",                        name: "Kumudini" },
+    { src: "/images/clients/SusNex Clients Logo_Mohammadi Group.png",                       name: "Mohammadi Group" },
+    { src: "/images/clients/SusNex Clients Logo_Nassa Group.png",                           name: "Nassa Group" },
+    { src: "/images/clients/SusNex Clients Logo_Navana Group.png",                          name: "Navana Group" },
+    { src: "/images/clients/SusNex Clients Logo_NOMAN Terry Towel Mills Ltd.png",           name: "NOMAN Terry Towel Mills" },
+    { src: "/images/clients/SusNex Clients Logo_Paddock's Jeans.png",                       name: "Paddock's Jeans" },
+    { src: "/images/clients/SusNex Clients Logo_Palmal Group.png",                          name: "Palmal Group" },
+    { src: "/images/clients/SusNex Clients Logo_Perfetti.png",                              name: "Perfetti" },
+    { src: "/images/clients/SusNex Clients Logo_Pran-RFL Group.png",                        name: "Pran-RFL Group" },
+    { src: "/images/clients/SusNex Clients Logo_Simens.png",                                name: "Siemens" },
+    { src: "/images/clients/SusNex Clients Logo_SREDA.png",                                 name: "SREDA" },
+    { src: "/images/clients/SusNex Clients Logo_Sun Pharma.png",                            name: "Sun Pharma" },
+    { src: "/images/clients/SusNex Clients Logo_Tusuka Group.png",                          name: "Tusuka Group" },
+    { src: "/images/clients/SusNex Clients Logo_YKK.png",                                   name: "YKK" },
+    { src: "/images/clients/SusNex Clients Logo_ZABER & ZUBAIR Fabrics Bangladesh.png",     name: "Zaber & Zubair Fabrics" },
+  ],
 };
 
 export default function EnergyCarbon() {

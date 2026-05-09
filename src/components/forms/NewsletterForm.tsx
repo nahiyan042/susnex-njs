@@ -55,7 +55,7 @@ export function NewsletterForm() {
   if (status === "success") {
     return (
       <div
-        className="rounded-xl border border-[var(--color-green)]/30 bg-[var(--color-green)]/5 p-4 text-center text-sm"
+        className="neo-surface rounded-xl border border-[var(--color-green)]/30 bg-[var(--color-green)]/5 p-4 text-center text-sm"
         role="status"
         aria-live="polite"
       >
@@ -79,7 +79,7 @@ export function NewsletterForm() {
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? "newsletter-email-error" : undefined}
           className={cn(
-            "w-full rounded-xl border border-border bg-bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--color-green)]",
+            "neo-input w-full rounded-xl border border-border bg-bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--color-green)]",
             errors.email && "border-red-500"
           )}
           placeholder="Enter your email"
@@ -115,7 +115,7 @@ export function NewsletterForm() {
         type="submit"
         disabled={status === "loading"}
         aria-busy={status === "loading"}
-        className="w-full rounded-xl bg-[var(--color-green)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-green-dark)] disabled:opacity-50"
+        className="neo-button-primary w-full rounded-xl bg-[var(--color-green)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-green-dark)] disabled:opacity-50"
       >
         {status === "loading" ? "Subscribing…" : "Subscribe"}
       </button>

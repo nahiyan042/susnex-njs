@@ -3,6 +3,8 @@ import { Inter, Sora } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { GlobalParallaxBackground } from "@/components/ui/GlobalParallaxBackground";
+import { PageTransition } from "@/components/animations/PageTransition";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
@@ -106,7 +108,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="flex min-h-screen flex-col bg-bg-primary font-sans text-text-primary antialiased">
+      <body className="relative flex min-h-screen w-full max-w-full flex-col overflow-x-hidden bg-bg-primary font-sans text-text-primary antialiased">
+        <GlobalParallaxBackground />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-md focus:bg-brand-primary focus:px-4 focus:py-2 focus:text-white focus:outline-none"
@@ -116,7 +119,7 @@ export default function RootLayout({
         <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
           <Header />
           <div id="main-content" className="flex-1" role="main">
-            {children}
+            <PageTransition>{children}</PageTransition>
           </div>
           <Footer />
         </ThemeProvider>

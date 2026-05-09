@@ -62,6 +62,14 @@ const data: ServicePageData = {
     { title: "Industry Recognition", description: "Trusted by leading apparel brands, retailers, and manufacturing groups." },
     { title: "Cost-Effective Solutions", description: "Practical recommendations that balance safety requirements with budget constraints." },
   ],
+  clientLogosHeading: "Our Clients",
+  clientLogosSubheading:
+    "Manufacturers and groups we have supported with structural analysis, soil investigation, and BNBC / ACCORD / Alliance compliance assessments.",
+  clientLogos: [
+    { src: "/images/clients/SusNex Clients Logo_Elma Group.png",                name: "Elma Group" },
+    { src: "/images/clients/SusNex Clients Logo_Teen Age Modern Fashion.png",   name: "Teen Age Modern Fashion Ltd." },
+    { src: "/images/clients/SusNex Clients Logo_Tex International BD.png",      name: "Tex International BD" },
+  ],
 };
 
 export default function EngineeringAssessment() {

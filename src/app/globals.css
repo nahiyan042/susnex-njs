@@ -9,28 +9,71 @@
   --color-grey-light: #8a8b8b;
   --color-white: #ffffff;
 
+  /* Extended sustainability palette — varied green shades */
+  --color-green-mint: #d6ecbc;
+  --color-green-sage: #b9d094;
+  --color-green-leaf: #7ba844;
+  --color-green-moss: #4d6f2c;
+  --color-green-forest: #2d4a1e;
+  --color-green-fog: #eef5e2;
+
   --gradient-primary: linear-gradient(135deg, #89b54f 0%, #616262 100%);
   --gradient-hero: linear-gradient(180deg, #89b54f22 0%, transparent 100%);
   --gradient-card: linear-gradient(145deg, #89b54f10, #61626210);
 
-  --bg-primary: #ffffff;
-  --bg-secondary: #f5f7f2;
+  --bg-primary: #fafdf6;
+  --bg-secondary: #f1f6e8;
   --bg-card: #ffffff;
   --text-primary: #1a1a1a;
   --text-secondary: #616262;
   --border-color: #e0e4d8;
+
+  --neo-shadow-raised:
+    9px 9px 20px rgba(99, 116, 84, 0.2),
+    -9px -9px 20px rgba(255, 255, 255, 0.8);
+  --neo-shadow-soft:
+    6px 6px 14px rgba(107, 124, 92, 0.16),
+    -6px -6px 14px rgba(255, 255, 255, 0.78);
+  --neo-shadow-inset:
+    inset 2px 2px 4px rgba(146, 168, 127, 0.2),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.72);
+  --glass-bg: color-mix(in srgb, var(--bg-card) 82%, transparent);
 }
 
 [data-theme="dark"] {
-  --bg-primary: #0f1a0a;
-  --bg-secondary: #162210;
-  --bg-card: #1e2e14;
-  --text-primary: #f0f4eb;
-  --text-secondary: #a3b08a;
-  --border-color: #2e3d20;
+  --bg-primary: #07130d;
+  --bg-secondary: #0d1f16;
+  --bg-card: #13281d;
+  --text-primary: #e8f5e9;
+  --text-secondary: #a5c2a9;
+  --border-color: #1f3a2b;
 
-  --color-green: #5c7c35;
-  --color-green-light: #89b54f;
+  --color-green: #89b54f;
+  --color-green-dark: #5c7c35;
+  --color-green-light: #a8d06b;
+
+  /* Extended sustainability palette — dark theme */
+  --color-green-mint: #2c4a32;
+  --color-green-sage: #3f6440;
+  --color-green-leaf: #74a247;
+  --color-green-moss: #5a8537;
+  --color-green-forest: #c9e2a8;
+  --color-green-fog: #15291a;
+
+  --gradient-primary: linear-gradient(135deg, #3f8c58 0%, #183729 100%);
+  --gradient-hero: linear-gradient(180deg, #3f8c582f 0%, transparent 100%);
+  --gradient-card: linear-gradient(145deg, #3f8c5824, #142e211a);
+
+  --neo-shadow-raised:
+    10px 10px 20px rgba(2, 12, 7, 0.65),
+    -9px -9px 20px rgba(28, 55, 40, 0.4);
+  --neo-shadow-soft:
+    6px 6px 14px rgba(3, 10, 7, 0.55),
+    -6px -6px 14px rgba(31, 62, 45, 0.34);
+  --neo-shadow-inset:
+    inset 2px 2px 6px rgba(4, 10, 7, 0.55),
+    inset -2px -2px 6px rgba(38, 74, 54, 0.33);
+  --glass-bg: color-mix(in srgb, var(--bg-card) 86%, transparent);
 }
 
 /* ─── Tailwind v4 Theme Tokens ────────────────────────────── */
@@ -38,6 +81,12 @@
   --color-brand: var(--color-green);
   --color-brand-dark: var(--color-green-dark);
   --color-brand-light: var(--color-green-light);
+  --color-brand-mint: var(--color-green-mint);
+  --color-brand-sage: var(--color-green-sage);
+  --color-brand-leaf: var(--color-green-leaf);
+  --color-brand-moss: var(--color-green-moss);
+  --color-brand-forest: var(--color-green-forest);
+  --color-brand-fog: var(--color-green-fog);
   --color-grey: var(--color-grey);
   --color-grey-light: var(--color-grey-light);
 
@@ -89,9 +138,162 @@
 
 /* ─── Base Styles ─────────────────────────────────────────── */
 body {
-  background: var(--bg-primary);
+  background:
+    linear-gradient(
+      180deg,
+      var(--bg-primary) 0%,
+      color-mix(in srgb, var(--color-green-fog) 55%, var(--bg-primary)) 50%,
+      var(--bg-primary) 100%
+    ),
+    var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-sans);
+  position: relative;
+}
+
+[data-theme="dark"] body {
+  background:
+    linear-gradient(
+      180deg,
+      var(--bg-primary) 0%,
+      color-mix(in srgb, var(--color-green-mint) 35%, var(--bg-primary)) 50%,
+      var(--bg-primary) 100%
+    ),
+    var(--bg-primary);
+}
+
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header controls its own stacking via Tailwind utilities; do not
+   constrain it here or dropdowns will fall under section stacking
+   contexts created by `isolation: isolate`. */
+
+section {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Hero opt-out — clean background, no doodles, no isolation so the
+   fixed header's dropdowns can paint above the hero. */
+.hero-section {
+  isolation: auto;
+}
+
+.hero-section::before,
+.hero-section::after {
+  content: none !important;
+  background: none !important;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.22;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+[data-theme="dark"] section::before {
+  opacity: 0.18;
+}
+
+section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.42;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+[data-theme="dark"] section::after {
+  opacity: 0.34;
+}
+
+/* ─── Sustainability doodles + per-section green gradient washes ───
+   Six rotating themes; line-art motifs with airy tile spacing keep
+   the surface clean while every section gets its own green flavor. */
+
+/* Theme 1 — Sunrise / clean energy (mint + sage wash, sun-ray doodle) */
+section:nth-of-type(6n + 1)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%235c7c35' stroke-opacity='0.55' stroke-width='1.4' stroke-linecap='round'%3E%3Ccircle cx='120' cy='120' r='18'/%3E%3Cpath d='M120 78v14M120 148v14M78 120h14M148 120h14M91 91l10 10M139 139l10 10M91 149l10-10M139 101l10-10'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}
+
+section:nth-of-type(6n + 1)::after {
+  background-image:
+    radial-gradient(circle at 14% 18%, color-mix(in srgb, var(--color-green-mint) 70%, transparent) 0 120px, transparent 320px),
+    radial-gradient(circle at 86% 82%, color-mix(in srgb, var(--color-green-sage) 55%, transparent) 0 140px, transparent 340px);
+}
+
+/* Theme 2 — Forest / leaves (sage + leaf wash, single-leaf doodle) */
+section:nth-of-type(6n + 2)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='%235c7c35' stroke-opacity='0.5' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M70 170c0-32 22-60 58-70 30-9 56 6 64 32-32 4-60 22-78 50-14-2-30-6-44-12z'/%3E%3Cpath d='M88 162c14-12 32-24 50-30 18-6 36-9 56-9'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 260px 260px;
+}
+
+section:nth-of-type(6n + 2)::after {
+  background-image:
+    radial-gradient(circle at 80% 14%, color-mix(in srgb, var(--color-green-sage) 65%, transparent) 0 130px, transparent 320px),
+    radial-gradient(circle at 18% 82%, color-mix(in srgb, var(--color-green-leaf) 45%, transparent) 0 130px, transparent 320px);
+}
+
+/* Theme 3 — Circular economy (mint + leaf wash, recycle arrows) */
+section:nth-of-type(6n + 3)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%235c7c35' stroke-opacity='0.5' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M88 96c10-22 42-30 60-12'/%3E%3Cpath d='M150 88l-2 14 14 2'/%3E%3Cpath d='M156 130c-10 22-42 30-60 12'/%3E%3Cpath d='M94 138l2-14-14-2'/%3E%3Cpath d='M82 134c-10-12-12-30 0-42'/%3E%3Cpath d='M82 90l-10 8 12 4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}
+
+section:nth-of-type(6n + 3)::after {
+  background-image:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-green-mint) 65%, transparent) 0 160px, transparent 360px),
+    radial-gradient(circle at 12% 86%, color-mix(in srgb, var(--color-green-leaf) 45%, transparent) 0 110px, transparent 240px);
+}
+
+/* Theme 4 — Growth / sprout (fog + moss wash, seedling doodle) */
+section:nth-of-type(6n + 4)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%235c7c35' stroke-opacity='0.5' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M120 180v-50'/%3E%3Cpath d='M120 134c-16-2-28-14-30-30 16 0 28 10 30 26'/%3E%3Cpath d='M120 126c16-2 28-14 30-30-16 0-28 10-30 26'/%3E%3Cpath d='M92 184q28 -10 56 0' stroke-dasharray='2 5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}
+
+section:nth-of-type(6n + 4)::after {
+  background-image:
+    radial-gradient(circle at 76% 22%, color-mix(in srgb, var(--color-green-fog) 78%, transparent) 0 140px, transparent 320px),
+    radial-gradient(circle at 18% 78%, color-mix(in srgb, var(--color-green-moss) 38%, transparent) 0 130px, transparent 320px);
+}
+
+/* Theme 5 — Water / droplet (mint + sage wash, droplet doodle) */
+section:nth-of-type(6n + 5)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%235c7c35' stroke-opacity='0.5' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M120 60c14 22 28 42 28 60a28 28 0 11-56 0c0-18 14-38 28-60z'/%3E%3Cpath d='M104 118c2 6 8 11 14 12'/%3E%3Ccircle cx='176' cy='168' r='3' fill='%235c7c35' fill-opacity='0.5'/%3E%3Ccircle cx='72' cy='80' r='2.5' fill='%235c7c35' fill-opacity='0.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}
+
+section:nth-of-type(6n + 5)::after {
+  background-image:
+    radial-gradient(ellipse at 30% 22%, color-mix(in srgb, var(--color-green-mint) 70%, transparent) 0 140px, transparent 320px),
+    radial-gradient(ellipse at 72% 72%, color-mix(in srgb, var(--color-green-sage) 50%, transparent) 0 150px, transparent 340px);
+}
+
+/* Theme 6 — Renewables / wind turbine (sage + moss wash, turbine doodle) */
+section:nth-of-type(6n)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='%235c7c35' stroke-opacity='0.5' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M130 196v-78'/%3E%3Ccircle cx='130' cy='118' r='4' fill='%235c7c35' fill-opacity='0.55'/%3E%3Cpath d='M130 118c-22-6-44-2-58 12 14 14 38 16 58-12z'/%3E%3Cpath d='M130 118c8-22 24-38 44-42-2 20-16 38-44 42z'/%3E%3Cpath d='M130 118c14 18 18 42 8 64-18-12-22-36-8-64z'/%3E%3Cpath d='M114 196h32'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 260px 260px;
+}
+
+section:nth-of-type(6n)::after {
+  background-image:
+    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--color-green-sage) 60%, transparent) 0 130px, transparent 300px),
+    radial-gradient(circle at 84% 76%, color-mix(in srgb, var(--color-green-moss) 38%, transparent) 0 140px, transparent 320px);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -165,5 +367,356 @@ body {
 }
 
 [data-theme="dark"] .bg-section-image {
-  filter: brightness(0.3) sepia(0.3) saturate(0.6);
+  filter: brightness(0.25) contrast(1.1) saturate(0.58);
+}
+
+/* ─── Global parallax background ────────────────────────────── */
+.global-parallax-bg {
+  position: fixed;
+  inset: -16vh -12vw;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.global-parallax-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.global-parallax-layer--base {
+  background:
+    radial-gradient(ellipse at 8% 12%, color-mix(in srgb, var(--color-green-mint) 60%, transparent) 0%, transparent 42%),
+    radial-gradient(ellipse at 88% 18%, color-mix(in srgb, var(--color-green-sage) 40%, transparent) 0%, transparent 38%),
+    radial-gradient(ellipse at 22% 70%, color-mix(in srgb, var(--color-green-fog) 70%, transparent) 0%, transparent 44%),
+    radial-gradient(ellipse at 78% 88%, color-mix(in srgb, var(--color-green-leaf) 22%, transparent) 0%, transparent 40%),
+    linear-gradient(180deg, color-mix(in srgb, var(--color-green-fog) 50%, transparent) 0%, transparent 60%, color-mix(in srgb, var(--color-green-mint) 30%, transparent) 100%);
+}
+
+.global-parallax-layer--grid {
+  opacity: 0.32;
+  background-image:
+    radial-gradient(
+      circle,
+      color-mix(in srgb, var(--color-green-leaf) 18%, transparent) 0 1.6px,
+      transparent 2.6px
+    );
+  background-size: 84px 84px;
+  background-position: 0 0;
+}
+
+.global-parallax-layer--motif {
+  opacity: 0.18;
+  background:
+    radial-gradient(circle at 14% 32%, color-mix(in srgb, var(--color-green-sage) 32%, transparent) 0 14px, transparent 16px),
+    radial-gradient(circle at 81% 40%, color-mix(in srgb, var(--color-green-leaf) 28%, transparent) 0 11px, transparent 13px),
+    radial-gradient(circle at 32% 80%, color-mix(in srgb, var(--color-green-moss) 24%, transparent) 0 13px, transparent 15px),
+    radial-gradient(circle at 66% 64%, color-mix(in srgb, var(--color-green-mint) 50%, transparent) 0 18px, transparent 22px);
+}
+
+[data-theme="dark"] .global-parallax-layer--base {
+  opacity: 0.78;
+}
+
+[data-theme="dark"] .global-parallax-layer--grid {
+  opacity: 0.4;
+}
+
+[data-theme="dark"] .global-parallax-layer--motif {
+  opacity: 0.26;
+}
+
+.global-parallax-layer--ecoicons {
+  opacity: 0.14;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cg fill='none' stroke='%235c7c35' stroke-opacity='0.4' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M44 104c0-22 16-42 40-50 22-7 40 4 46 24-22 4-44 16-58 36-10-2-20-6-28-10z'/%3E%3Cpath d='M64 96c12-10 26-18 42-22 14-4 28-6 44-6'/%3E%3Cpath d='M232 60c10 14 14 30 10 46-14-2-24-14-26-30-2-12 4-22 16-16z'/%3E%3Cpath d='M260 196v-44'/%3E%3Cpath d='M260 156c-12-2-22-12-22-22 12 0 22 8 22 18'/%3E%3Cpath d='M260 152c12-2 22-12 22-22-12 0-22 8-22 18'/%3E%3Ccircle cx='130' cy='240' r='12'/%3E%3Cpath d='M130 220v-8M130 268v-8M110 240h-8M158 240h-8'/%3E%3Cpath d='M70 246c8 14 22 22 38 22a26 26 0 100-52c-16 0-30 8-38 22z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 360px 360px;
+}
+
+[data-theme="dark"] .global-parallax-layer--ecoicons {
+  opacity: 0.18;
+  filter: saturate(0.92) brightness(0.85);
+}
+
+/* ─── Neomorphic primitives ─────────────────────────────────── */
+.neo-surface {
+  border: 1px solid color-mix(in srgb, var(--border-color) 92%, white 8%);
+  background: linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--bg-card) 94%, white 6%),
+      color-mix(in srgb, var(--bg-secondary) 88%, var(--bg-card) 12%)
+    );
+  box-shadow: var(--neo-shadow-soft), var(--neo-shadow-inset);
+}
+
+.neo-elevated {
+  box-shadow: var(--neo-shadow-raised), var(--neo-shadow-inset);
+}
+
+.neo-button-primary {
+  border: 1px solid color-mix(in srgb, var(--color-green-dark) 44%, transparent);
+  background: var(--color-green);
+  box-shadow:
+    0 8px 16px color-mix(in srgb, var(--color-green-dark) 30%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 22%, transparent);
+}
+
+.neo-button-primary:hover {
+  background: var(--color-green-dark);
+  filter: none;
+}
+
+.neo-button-secondary,
+.neo-input,
+.neo-icon-btn {
+  border: 1px solid color-mix(in srgb, var(--border-color) 88%, white 12%);
+  background: var(--glass-bg);
+  box-shadow: var(--neo-shadow-soft), var(--neo-shadow-inset);
+}
+
+.neo-button-secondary:hover,
+.neo-icon-btn:hover {
+  border-color: color-mix(in srgb, var(--color-green) 36%, var(--border-color));
+}
+
+.neo-input:focus-visible {
+  border-color: color-mix(in srgb, var(--color-green) 68%, var(--border-color));
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--color-green) 30%, transparent),
+    var(--neo-shadow-soft),
+    var(--neo-shadow-inset);
+}
+
+/* Auto-apply neomorphic treatment to common surfaces/buttons */
+[class*="bg-bg-card"][class*="border-border"] {
+  box-shadow: var(--neo-shadow-soft), var(--neo-shadow-inset);
+}
+
+/* ─── Client logo tile ─────────────────────────────────────────────────
+ *
+ * One unified light-sage gradient that holds up against BOTH ends of the
+ * logo-colour spectrum on the same wall:
+ *   – pure-white marks (Multifabs, Shin Shin, Sainsbury's, Fakir's
+ *     "Fashion" cursive, etc.) get a green-tinted backdrop that they
+ *     can stand against without disappearing the way they would on a
+ *     plain white tile.
+ *   – dark/black marks (BGMEA, Akij, Bashundhara, etc.) read
+ *     comfortably because the gradient stays light enough that the
+ *     dark ink keeps a strong tonal gap.
+ *
+ * Theme-agnostic by design: the gradient does NOT flip in dark mode,
+ * so every visitor sees the same client wall regardless of system
+ * preference. (Without this, dark mode would either crush dark logos
+ * or wash out white ones depending on which way we flipped.)
+ *
+ * The `inset 0 1px 0 white/55%` highlight gives the tile a subtle
+ * "lifted glass" feel that matches the rest of the neumorphic shell.
+ */
+.logo-tile {
+  background-image: linear-gradient(
+    135deg,
+    #e8f4d6 0%,
+    #d2e7a8 55%,
+    #b7d588 100%
+  );
+  border-color: color-mix(in srgb, var(--color-green) 30%, transparent);
+  box-shadow:
+    0 4px 14px rgba(72, 110, 38, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: background-image 0.25s ease, border-color 0.25s ease;
+}
+
+.logo-tile:hover {
+  background-image: linear-gradient(
+    135deg,
+    #eef7e0 0%,
+    #dcedb6 55%,
+    #c4dd96 100%
+  );
+  border-color: color-mix(in srgb, var(--color-green) 55%, transparent);
+}
+
+a[class*="bg-\\[var\\(--color-green\\)\\]"],
+button[class*="bg-\\[var\\(--color-green\\)\\]"] {
+  border: 1px solid color-mix(in srgb, var(--color-green-dark) 44%, transparent);
+  background: var(--color-green);
+  box-shadow:
+    0 8px 16px color-mix(in srgb, var(--color-green-dark) 30%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 22%, transparent);
+}
+
+/* ─── Blog content (.blog-prose) ─────────────────────────────
+   Lightweight in-house typography styles for the markdown-ish HTML
+   we ship from src/lib/content/blog.ts. We don't pull the
+   @tailwindcss/typography plugin because we only need a small,
+   tightly-controlled surface area — and we want full theme-token
+   access (var(--color-green), var(--bg-card), etc.) without battling
+   prose's own opinionated overrides.
+
+   Vertical rhythm:
+     paragraph        →  1rem top margin
+     h2               →  2.75rem top, 0.75rem bottom
+     h3               →  2rem    top, 0.5rem bottom
+     figure (image)   →  2.5rem top + bottom — gives the photography
+                         room to breathe between text blocks. */
+.blog-prose {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.blog-prose > * + * {
+  margin-top: 1rem;
+}
+
+.blog-prose h2 {
+  margin-top: 2.75rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.blog-prose h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.blog-prose p {
+  color: var(--text-secondary);
+}
+
+.blog-prose strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.blog-prose em {
+  font-style: italic;
+}
+
+.blog-prose a {
+  color: var(--color-green);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.blog-prose a:hover {
+  color: var(--color-green-dark);
+}
+
+.blog-prose ul {
+  margin-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.blog-prose ul > li {
+  margin-top: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.blog-prose ul > li::marker {
+  color: var(--color-green);
+}
+
+/* Inline images embedded inside the post body. We render each one as
+   a <figure class="blog-figure"> wrapper with an optional <figcaption>.
+   The figure is a flex column so caption sits flush under the photo
+   even with rounded corners; overflow:hidden + border keeps the photo
+   feeling like a card rather than a raw <img>. */
+.blog-prose .blog-figure {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blog-prose .blog-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  box-shadow:
+    0 12px 28px color-mix(in srgb, var(--color-green-forest) 18%, transparent),
+    0 2px 6px color-mix(in srgb, black 8%, transparent);
+  background-color: var(--bg-card);
+}
+
+[data-theme="dark"] .blog-prose .blog-figure img {
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.55),
+    0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.blog-prose .blog-figure figcaption {
+  margin-top: 0.875rem;
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 36rem;
+  line-height: 1.55;
+}
+
+/* Pair of side-by-side photos. Stacks on mobile, sits as a 2-up
+   grid from `sm:` upwards so a workshop set reads as a moment
+   rather than as two separate beats. */
+.blog-prose .blog-figure-grid {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .blog-prose .blog-figure-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.blog-prose .blog-figure-grid figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-prose .blog-figure-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 0.875rem;
+  border: 1px solid var(--border-color);
+  box-shadow:
+    0 10px 24px color-mix(in srgb, var(--color-green-forest) 16%, transparent),
+    0 2px 5px color-mix(in srgb, black 6%, transparent);
+}
+
+[data-theme="dark"] .blog-prose .blog-figure-grid img {
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.55),
+    0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.blog-prose .blog-figure-grid figcaption {
+  margin-top: 0.625rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.5;
 }

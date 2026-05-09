@@ -16,7 +16,7 @@ const serviceLinks = [
   { href: "/services/material-smart", label: "Sustainable Materials & Circularity" },
   { href: "/services/gender-smart", label: "Gender Equality & Social Inclusion (GESI)" },
   { href: "/services/engineering-assessment", label: "Structural Engineering Assessment" },
-  { href: "/services/speak-for-change", label: "amfori Speak for Change" },
+  { href: "/services/speak-for-change", label: "Worker Voice & Grievance Mechanism" },
   { href: "/services/dpp-espr", label: "DPP & ESPR Readiness" },
 ];
 
@@ -74,7 +74,7 @@ function DesktopDropdown({
           transition={{ duration: 0.18 }}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
-          className="absolute top-full left-1/2 z-50 mt-1 -translate-x-1/2 rounded-xl border border-border bg-bg-primary/95 p-2 shadow-xl backdrop-blur-xl"
+          className="neo-surface absolute top-full left-1/2 z-[120] mt-1 -translate-x-1/2 rounded-xl border border-border bg-bg-primary/95 p-2 shadow-xl backdrop-blur-xl"
           style={{ minWidth: children.length > 10 ? "480px" : "240px" }}
         >
           <div className={children.length > 10 ? "grid max-h-[70vh] grid-cols-2 gap-x-1 overflow-y-auto" : ""}>
@@ -102,6 +102,24 @@ export function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout>>(null);
+
+  // Routes where the page begins with a full-bleed photographic hero
+  // or otherwise needs a guaranteed solid surface behind the nav. On
+  // these pages the header sits directly over arbitrary imagery (or a
+  // tinted PageHeader band) from the moment the page loads, so we force
+  // the scrolled-style backdrop on regardless of scroll position —
+  // otherwise the nav text fights the cover photo and becomes unreadable.
+  //
+  //  • /academy/[slug]   – individual training course pages with a
+  //                        photographic cover hero
+  //  • /blog             – listing page sits flush against a tinted
+  //                        PageHeader band; surface keeps the nav crisp
+  //  • /blog/[slug]      – individual post pages with a full-bleed
+  //                        photographic hero + dark gradient overlay
+  const hasImmersiveHero =
+    (pathname.startsWith("/academy/") && pathname !== "/academy") ||
+    pathname.startsWith("/blog");
+  const showSurface = scrolled || hasImmersiveHero;
 
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
@@ -135,9 +153,9 @@ export function Header() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={cn(
-          "fixed top-0 right-0 left-0 z-50 transition-all duration-300",
-          scrolled
-            ? "border-b border-border bg-bg-primary/90 shadow-sm backdrop-blur-xl"
+          "fixed top-0 right-0 left-0 z-[100] transition-all duration-300",
+          showSurface
+            ? "neo-surface border-b border-border bg-bg-primary/90 shadow-sm backdrop-blur-xl"
             : "bg-transparent"
         )}
       >
@@ -222,7 +240,7 @@ export function Header() {
               href="https://outlook.office.com/bookwithme/user/f31275c2625b48398f3a12669261c514@susnex.com?anonymous&ep=plink"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-[var(--color-green)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-green-dark)]"
+              className="neo-button-primary rounded-full bg-[var(--color-green)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-green-dark)]"
             >
               Schedule a Meeting
             </a>
@@ -233,7 +251,7 @@ export function Header() {
             <ThemeToggle />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="relative z-50 flex h-10 w-10 items-center justify-center"
+              className="neo-icon-btn relative z-50 flex h-10 w-10 items-center justify-center rounded-full"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >
@@ -362,7 +380,7 @@ export function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-full bg-[var(--color-green)] px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-[var(--color-green-dark)]"
+                  className="neo-button-primary rounded-full bg-[var(--color-green)] px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-[var(--color-green-dark)]"
                 >
                   Schedule a Meeting
                 </a>
