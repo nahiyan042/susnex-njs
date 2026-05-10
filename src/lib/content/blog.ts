@@ -12,6 +12,57 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "chattogram-sustainability-reporting-event",
+    title:
+      "SusNex Hosts Chattogram's First-Ever Sustainability Reporting & GRI Standards Event",
+    date: "2026-05-10",
+    author: "SusNex Team",
+    category: "SusNex Updates",
+    image: "/images/blog/chatogram-event/page_1_img_0.jpeg",
+    excerpt:
+      "Discover how SusNex made history in Chattogram by hosting 63 industry professionals for an intensive 3.5-hour session on ESG compliance, EU directives, and GRI sustainability reporting.",
+    tags: [
+      "Sustainability Reporting",
+      "GRI Standards",
+      "ESG Compliance",
+      "Chattogram",
+      "Corporate Sustainability"
+    ],
+    content: `
+      <h2>Making History: Chattogram's First Sustainability Reporting Event</h2>
+
+      <p>We made history in Chattogram! SusNex successfully hosted the city's first-ever awareness event on <strong>Sustainability Reporting and the GRI Standards</strong>. The engagement and readiness of Chattogram's industries to embrace transparency was truly inspiring.</p>
+
+      <p>During an intensive, 3.5-hour deep dive, we brought together <strong>63 brilliant professionals</strong> representing more than four major industries, including fashion, footwear, leather, and ship-building. This diverse turnout demonstrates a strong, cross-sector interest in ESG compliance and corporate sustainability.</p>
+
+      <figure class="blog-figure">
+        <img src="/images/blog/chatogram-event/page_3_img_3.jpeg" alt="Attendees at the SusNex sustainability reporting awareness session in Chattogram." loading="lazy" />
+        <figcaption>Professionals from fashion, footwear, leather, and ship-building sectors gathered for the interactive ESG training.</figcaption>
+      </figure>
+
+      <h3>Moving Beyond Theory: Real Factory-Level Concerns</h3>
+
+      <p>The session was designed to equip attendees to start their reporting journey with clarity. We moved past abstract concepts and addressed real, factory-level concerns. Central themes included practical ESG data ownership and evaluating reporting readiness.</p>
+
+      <h3>Key Takeaways for Attendees</h3>
+
+      <ul>
+        <li><strong>Reporting Landscape:</strong> Decoding EU directives, understanding global buyer expectations, and recognizing why transparency is becoming non-negotiable.</li>
+        <li><strong>Ownership Mapping:</strong> Learning how factories can effectively assign ESG data responsibility across various departments.</li>
+        <li><strong>The Action Plan:</strong> Setting up an actionable 60-90 day roadmap to begin sustainability reporting utilizing the widely recognized GRI Standards.</li>
+      </ul>
+
+      <figure class="blog-figure">
+        <img src="/images/blog/chatogram-event/page_3_img_4.jpeg" alt="SusNex expert presenting on GRI standards and EU directives in Chattogram." loading="lazy" />
+        <figcaption>Interactive learning focused on mapping ESG data ownership and setting practical 60-90 day action plans.</figcaption>
+      </figure>
+
+      <h3>The Journey Starts Now</h3>
+
+      <p>We want to extend a massive thank you to all the delegates who joined us. The journey to a greener, more compliant future starts now! By fostering knowledge on EU directives and building practical roadmaps, SusNex is proud to support Chattogram's industrial growth towards a sustainable tomorrow.</p>
+    `,
+  },
+  {
     slug: "swisscontact-susnex-workshop",
     title:
       "Swisscontact, SusNex Host Workshop on Sustainability-Focused Reporting",
